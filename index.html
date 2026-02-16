@@ -49,6 +49,31 @@ section { padding: 80px 0; border-bottom: 1px solid var(--mid); }
 .status-line .pulse { display: inline-block; color: var(--green); animation: pulse 2s infinite; }
 @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
 
+/* TYPING CURSOR */
+.typing-cursor::after { content: '█'; color: var(--green); animation: blink 0.8s step-end infinite; margin-left: 2px; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+
+/* GLITCH HOVER */
+.glitch-hover { position: relative; display: inline-block; }
+.glitch-hover:hover { animation: glitch 0.3s ease-in-out; }
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-3px, 2px); text-shadow: 2px 0 var(--red), -2px 0 var(--cyan); }
+  40% { transform: translate(3px, -2px); text-shadow: -2px 0 var(--red), 2px 0 var(--cyan); }
+  60% { transform: translate(-2px, 1px); text-shadow: 1px 0 var(--red), -1px 0 var(--cyan); }
+  80% { transform: translate(2px, -1px); text-shadow: -1px 0 var(--red), 1px 0 var(--cyan); }
+  100% { transform: translate(0); text-shadow: none; }
+}
+
+/* MATRIX CANVAS */
+#matrix-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; opacity: 0.08; pointer-events: none; }
+
+/* SCAN LINE */
+.hero::after { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,255,65,0.015) 2px, rgba(0,255,65,0.015) 4px); pointer-events: none; z-index: 1; }
+
+/* COUNTER ANIMATION */
+.stat .num { transition: color 0.3s; }
+
 /* Section Headers */
 .section-header { margin-bottom: 48px; }
 .section-header .label { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--green); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
@@ -170,10 +195,11 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
 
 <!-- HERO -->
 <section class="hero">
+  <canvas id="matrix-bg"></canvas>
   <div class="container" style="position:relative;z-index:1;">
     <div class="hero-badge">[ Public ] — Operations Hub</div>
-    <h1><span class="icon">◉</span> COREDIRECTIVE</h1>
-    <div class="tagline">Cybersecurity Operations &bull; Infrastructure Automation &bull; Technical Auditing</div>
+    <h1><span class="icon">◉</span> <span class="glitch-hover">COREDIRECTIVE</span></h1>
+    <div class="tagline" id="typed-tagline"></div>
     <div class="sub-tagline">Building the next generation of security infrastructure through autonomous engineering and strategic auditing.</div>
     <p class="intro">I engineer resilient security frameworks and deploy autonomous defensive pipelines to mitigate business-level risk. Lead Developer of the Cyber-Squire OS.</p>
     <div class="hero-buttons">
@@ -518,6 +544,83 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 });
+
+// TYPING EFFECT
+(function() {
+  const text = 'Cybersecurity Operations \u2022 Infrastructure Automation \u2022 Technical Auditing';
+  const el = document.getElementById('typed-tagline');
+  let i = 0;
+  el.classList.add('typing-cursor');
+  function type() {
+    if (i < text.length) {
+      el.textContent += text.charAt(i);
+      i++;
+      setTimeout(type, 40 + Math.random() * 30);
+    } else {
+      setTimeout(() => el.classList.remove('typing-cursor'), 2000);
+    }
+  }
+  setTimeout(type, 800);
+})();
+
+// MATRIX RAIN
+(function() {
+  const canvas = document.getElementById('matrix-bg');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let w, h, columns, drops;
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*<>{}[]';
+  function resize() {
+    w = canvas.width = canvas.parentElement.offsetWidth;
+    h = canvas.height = canvas.parentElement.offsetHeight;
+    columns = Math.floor(w / 14);
+    drops = Array(columns).fill(1);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+  function draw() {
+    ctx.fillStyle = 'rgba(10,10,10,0.15)';
+    ctx.fillRect(0, 0, w, h);
+    ctx.fillStyle = '#00FF41';
+    ctx.font = '12px JetBrains Mono, monospace';
+    for (let i = 0; i < drops.length; i++) {
+      const char = chars[Math.floor(Math.random() * chars.length)];
+      ctx.fillText(char, i * 14, drops[i] * 14);
+      if (drops[i] * 14 > h && Math.random() > 0.975) drops[i] = 0;
+      drops[i]++;
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// COUNTER ANIMATION (scroll-triggered)
+(function() {
+  const stats = document.querySelectorAll('.stat .num');
+  const observed = new Set();
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !observed.has(entry.target)) {
+        observed.add(entry.target);
+        const el = entry.target;
+        const text = el.textContent.trim();
+        const match = text.match(/^(\d+)(\+?)$/);
+        if (match) {
+          const target = parseInt(match[1]);
+          const suffix = match[2];
+          let current = 0;
+          const step = Math.max(1, Math.floor(target / 30));
+          const interval = setInterval(() => {
+            current += step;
+            if (current >= target) { current = target; clearInterval(interval); }
+            el.textContent = current + suffix;
+          }, 40);
+        }
+      }
+    });
+  }, { threshold: 0.5 });
+  stats.forEach(s => observer.observe(s));
+})();
 </script>
 
 </body>

@@ -242,7 +242,7 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
     <p class="intro">I engineer defensive systems and automate security operations to reduce organizational risk. Architect of the Cyber-Squire OS.</p>
     <div class="hero-buttons">
       <a href="#contact" class="btn btn-primary">Book a Consult</a>
-      <a href="https://github.com/ETcodin" target="_blank" class="btn btn-outline">Review Infrastructure</a>
+      <a href="https://github.com/ETcodin" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Review Infrastructure</a>
     </div>
     <div class="status-line"><span class="pulse">◉</span> STATUS: SYSTEMS ONLINE // COREDIRECTIVE ACTIVE</div>
   </div>
@@ -447,19 +447,19 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
             <td style="padding:16px 8px;"><span style="color:var(--white);font-weight:700;">CCNA 200-301 Cyber-Squire OS</span><br><span style="color:var(--light);font-size:11px;">CS-CCNA-200</span></td>
             <td style="padding:16px 8px;color:var(--green);">[ VERIFIED ]</td>
             <td style="padding:16px 8px;color:var(--gold);font-weight:700;">$39.99</td>
-            <td style="padding:16px 8px;"><a href="https://gum.co/u/xetdgbo9?utm_source=portfolio&utm_medium=website" target="_blank" class="btn btn-primary btn-sm" style="white-space:nowrap;">Acquire Asset</a></td>
+            <td style="padding:16px 8px;"><a href="https://gum.co/u/xetdgbo9?utm_source=portfolio&utm_medium=website" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="white-space:nowrap;">Acquire Asset</a></td>
           </tr>
           <tr style="border-bottom:1px solid var(--mid);">
             <td style="padding:16px 8px;"><span style="color:var(--white);font-weight:700;">Security+ 701 Cyber-Squire OS</span><br><span style="color:var(--light);font-size:11px;">CS-SEC-701</span></td>
             <td style="padding:16px 8px;color:var(--green);">[ VERIFIED ]</td>
             <td style="padding:16px 8px;color:var(--gold);font-weight:700;">$29.99</td>
-            <td style="padding:16px 8px;"><a href="https://gum.co/u/46x2ujvh?utm_source=portfolio&utm_medium=website" target="_blank" class="btn btn-primary btn-sm" style="white-space:nowrap;">Acquire Asset</a></td>
+            <td style="padding:16px 8px;"><a href="https://gum.co/u/46x2ujvh?utm_source=portfolio&utm_medium=website" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="white-space:nowrap;">Acquire Asset</a></td>
           </tr>
           <tr>
             <td style="padding:16px 8px;"><span style="color:var(--white);font-weight:700;">Network+ 009 Cyber-Squire OS</span><br><span style="color:var(--light);font-size:11px;">CS-NET-009</span></td>
             <td style="padding:16px 8px;color:var(--green);">[ OPEN SOURCE ]</td>
             <td style="padding:16px 8px;color:var(--green);font-weight:700;">FREE</td>
-            <td style="padding:16px 8px;"><a href="https://gum.co/u/a88bahum?utm_source=portfolio&utm_medium=website" target="_blank" class="btn btn-outline btn-sm" style="white-space:nowrap;">Acquire Asset</a></td>
+            <td style="padding:16px 8px;"><a href="https://gum.co/u/a88bahum?utm_source=portfolio&utm_medium=website" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" style="white-space:nowrap;">Acquire Asset</a></td>
           </tr>
         </tbody>
       </table>
@@ -561,10 +561,10 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
     </div>
     <p style="color:var(--light);max-width:500px;margin-bottom:8px;">Ready to talk security, automation, or strategy. Pick a channel.</p>
     <div class="contact-links">
-      <a href="https://www.tiktok.com/@coredirective.official?utm_source=portfolio&utm_medium=website" target="_blank" class="contact-link">▶ TikTok</a>
-      <a href="https://www.youtube.com/@coredirective.official?utm_source=portfolio&utm_medium=website" target="_blank" class="contact-link">▶ YouTube</a>
-      <a href="https://www.linkedin.com/in/emmanuel-tigoue-672378307?utm_source=portfolio&utm_medium=website" target="_blank" class="contact-link">▶ LinkedIn</a>
-      <a href="https://coredirective1.gumroad.com?utm_source=portfolio&utm_medium=website" target="_blank" class="contact-link">▶ Gumroad</a>
+      <a href="https://www.tiktok.com/@coredirective.official?utm_source=portfolio&utm_medium=website" target="_blank" rel="noopener noreferrer" class="contact-link">▶ TikTok</a>
+      <a href="https://www.youtube.com/@coredirective.official?utm_source=portfolio&utm_medium=website" target="_blank" rel="noopener noreferrer" class="contact-link">▶ YouTube</a>
+      <a href="https://www.linkedin.com/in/emmanuel-tigoue-672378307?utm_source=portfolio&utm_medium=website" target="_blank" rel="noopener noreferrer" class="contact-link">▶ LinkedIn</a>
+      <a href="https://coredirective1.gumroad.com?utm_source=portfolio&utm_medium=website" target="_blank" rel="noopener noreferrer" class="contact-link">▶ Gumroad</a>
       <a href="join.html" class="contact-link" style="border-color:var(--green);">▶ Join Secure Channel</a>
     </div>
     <a href="mailto:support@tigouetheory.com" class="contact-email" style="display:block;text-decoration:none;">support@tigouetheory.com</a>
@@ -584,7 +584,7 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
 // Build hours automated progress bar (20 segments, 280/10000 = ~0.56 blocks)
 const bar = document.getElementById('hoursBar');
 if (bar) {
-  const filled = Math.round((280 / 10000) * 20); // Update 280 as hours grow
+  const filled = Math.max(1, Math.ceil((280 / 10000) * 20)); // Update 280 as hours grow
   for (let i = 0; i < 20; i++) {
     const block = document.createElement('div');
     block.className = 'progress-block' + (i < filled ? ' filled' : '');
@@ -700,18 +700,22 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   }, { threshold: 0.15 });
   document.querySelectorAll('.reveal, .reveal-left').forEach(el => revealObserver.observe(el));
 
-  // Staggered cards (re-trigger)
+  // Staggered cards (re-trigger, race-safe)
+  const staggerTimers = new Map();
   const cardObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
+      const parent = entry.target.parentElement;
+      const cards = parent.querySelectorAll('.stagger-card');
       if (entry.isIntersecting) {
-        const parent = entry.target.parentElement;
-        const cards = parent.querySelectorAll('.stagger-card');
+        const timers = [];
         cards.forEach((card, i) => {
-          setTimeout(() => card.classList.add('visible'), i * 120);
+          timers.push(setTimeout(() => card.classList.add('visible'), i * 120));
         });
+        staggerTimers.set(parent, timers);
       } else {
-        const parent = entry.target.parentElement;
-        const cards = parent.querySelectorAll('.stagger-card');
+        const timers = staggerTimers.get(parent) || [];
+        timers.forEach(t => clearTimeout(t));
+        staggerTimers.delete(parent);
         cards.forEach(card => card.classList.remove('visible'));
       }
     });
@@ -736,11 +740,13 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   const firstCert = document.querySelector('.cert-card');
   if (firstCert) glowObserver.observe(firstCert);
 
-  // HUD corner draw-in
+  // HUD corner draw-in (re-triggers)
   const hudObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('drawn');
+      } else {
+        entry.target.classList.remove('drawn');
       }
     });
   }, { threshold: 0.3 });

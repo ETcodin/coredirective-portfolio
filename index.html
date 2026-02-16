@@ -74,6 +74,42 @@ section { padding: 80px 0; border-bottom: 1px solid var(--mid); }
 /* COUNTER ANIMATION */
 .stat .num { transition: color 0.3s; }
 
+/* SCROLL REVEAL */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+/* STAGGERED CARDS */
+.stagger-card { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.stagger-card.visible { opacity: 1; transform: translateY(0); }
+
+/* CERT CARD GLOW ON SCROLL */
+.cert-card .hud { transition: border-color 0.6s, box-shadow 0.6s; }
+.cert-card.glow .hud { border-color: var(--green); box-shadow: 0 0 16px rgba(0,255,65,0.2); }
+
+/* HUD CORNER DRAW-IN */
+.hud-animate::before, .hud-animate::after, .hud-animate .bl, .hud-animate .br {
+  width: 0; height: 0; transition: width 0.4s ease, height 0.4s ease;
+}
+.hud-animate.drawn::before, .hud-animate.drawn::after, .hud-animate.drawn .bl, .hud-animate.drawn .br {
+  width: 20px; height: 20px;
+}
+
+/* RADAR PING on ACTIVE */
+.radar-ping { position: relative; }
+.radar-ping::before { content: ''; position: absolute; top: 50%; left: -12px; width: 8px; height: 8px; background: var(--green); border-radius: 50%; transform: translateY(-50%); }
+.radar-ping::after { content: ''; position: absolute; top: 50%; left: -12px; width: 8px; height: 8px; border: 2px solid var(--green); border-radius: 50%; transform: translateY(-50%); animation: radar 2s ease-out infinite; }
+@keyframes radar { 0% { width: 8px; height: 8px; opacity: 1; left: -12px; } 100% { width: 28px; height: 28px; opacity: 0; left: -22px; top: 40%; } }
+
+/* NAV GLOW ON SCROLL */
+nav { transition: box-shadow 0.3s; }
+nav.scrolled { box-shadow: 0 2px 20px rgba(0,255,65,0.1); }
+
+/* BUTTON HOVER GLOW */
+.btn-primary:hover { box-shadow: 0 0 20px rgba(0,255,65,0.3); }
+.btn-outline:hover { box-shadow: 0 0 20px rgba(0,212,255,0.3); }
+
 /* Section Headers */
 .section-header { margin-bottom: 48px; }
 .section-header .label { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--green); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
@@ -213,7 +249,7 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
 <!-- ABOUT -->
 <section id="about">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header reveal-left">
       <div class="label">// About CoreDirective</div>
       <h2>About CoreDirective</h2>
       <div class="line"></div>
@@ -238,7 +274,7 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
           <span class="bl"></span><span class="br"></span>
           <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--light);margin-bottom:8px;">MISSION STATUS [ OPERATIONAL ]</div>
           <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--cyan);line-height:1.7;">
-            Documenting and deploying the next generation of security infrastructure. Bridging technical certification mastery with real-world infrastructure builds.<br><br>OPERATIONAL STATUS <span style="color:var(--green);">◉ ACTIVE</span>
+            Documenting and deploying the next generation of security infrastructure. Bridging technical certification mastery with real-world infrastructure builds.<br><br>OPERATIONAL STATUS <span class="radar-ping" style="color:var(--green);padding-left:16px;">ACTIVE</span>
           </div>
         </div>
       </div>
@@ -249,13 +285,13 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
 <!-- CERTIFICATIONS -->
 <section id="certs">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header reveal-left">
       <div class="label">// Clearance Stack</div>
       <h2>Certifications</h2>
       <div class="line"></div>
     </div>
     <div class="cert-grid">
-      <div class="cert-card"><div class="hud"><span class="bl"></span><span class="br"></span>
+      <div class="cert-card stagger-card"><div class="hud"><span class="bl"></span><span class="br"></span>
         <span class="cert-badge badge-cleared">◉ CLEARED</span>
         <h3>CompTIA CASP+</h3>
         <div class="cert-meta">Advanced Security Practitioner</div>
@@ -264,7 +300,7 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
         <div class="doc-id">CD-CERT-001</div>
       </div></div>
 
-      <div class="cert-card"><div class="hud"><span class="bl"></span><span class="br"></span>
+      <div class="cert-card stagger-card"><div class="hud"><span class="bl"></span><span class="br"></span>
         <span class="cert-badge badge-cleared">◉ CLEARED</span>
         <h3>Cisco CCNA</h3>
         <div class="cert-meta">Network Associate</div>
@@ -273,7 +309,7 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
         <div class="doc-id">CD-CERT-002</div>
       </div></div>
 
-      <div class="cert-card"><div class="hud"><span class="bl"></span><span class="br"></span>
+      <div class="cert-card stagger-card"><div class="hud"><span class="bl"></span><span class="br"></span>
         <span class="cert-badge badge-cleared">◉ CLEARED</span>
         <h3>ISC2 SSCP</h3>
         <div class="cert-meta">Systems Security Certified Practitioner</div>
@@ -282,7 +318,7 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
         <div class="doc-id">CD-CERT-003</div>
       </div></div>
 
-      <div class="cert-card"><div class="hud"><span class="bl"></span><span class="br"></span>
+      <div class="cert-card stagger-card"><div class="hud"><span class="bl"></span><span class="br"></span>
         <span class="cert-badge badge-cleared">◉ CLEARED</span>
         <h3>CompTIA Security+</h3>
         <div class="cert-meta">Security Fundamentals</div>
@@ -291,7 +327,7 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
         <div class="doc-id">CD-CERT-004</div>
       </div></div>
 
-      <div class="cert-card"><div class="hud"><span class="bl"></span><span class="br"></span>
+      <div class="cert-card stagger-card"><div class="hud"><span class="bl"></span><span class="br"></span>
         <span class="cert-badge badge-cleared">◉ CLEARED</span>
         <h3>CompTIA Network+</h3>
         <div class="cert-meta">Networking Fundamentals</div>
@@ -300,7 +336,7 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
         <div class="doc-id">CD-CERT-005</div>
       </div></div>
 
-      <div class="cert-card"><div class="hud"><span class="bl"></span><span class="br"></span>
+      <div class="cert-card stagger-card"><div class="hud"><span class="bl"></span><span class="br"></span>
         <span class="cert-badge badge-cleared">◉ CLEARED</span>
         <h3>ISC2 CC</h3>
         <div class="cert-meta">Certified in Cybersecurity</div>
@@ -309,7 +345,7 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
         <div class="doc-id">CD-CERT-006</div>
       </div></div>
 
-      <div class="cert-card"><div class="hud"><span class="bl"></span><span class="br"></span>
+      <div class="cert-card stagger-card"><div class="hud"><span class="bl"></span><span class="br"></span>
         <span class="cert-badge badge-cleared">◉ CLEARED</span>
         <h3>AWS Security Specialty</h3>
         <div class="cert-meta">Cloud Security</div>
@@ -324,13 +360,13 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
 <!-- SOLUTIONS -->
 <section id="solutions">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header reveal-left">
       <div class="label">// Solutions</div>
       <h2>Solutions</h2>
       <div class="line"></div>
     </div>
     <div class="service-grid">
-      <div class="service-card"><div class="hud"><span class="bl"></span><span class="br"></span>
+      <div class="service-card stagger-card"><div class="hud"><span class="bl"></span><span class="br"></span>
         <div class="service-tier">Security</div>
         <h3>Infrastructure Audit</h3>
         <div class="service-desc">Identifying systemic risk, compliance gaps, and attack surface exposure. Full assessment aligned to DoD 8140 and NIST frameworks.</div>
@@ -343,7 +379,7 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
         <a href="#contact" class="btn btn-outline btn-sm">Request Quote</a>
       </div></div>
 
-      <div class="service-card"><div class="hud"><span class="bl"></span><span class="br"></span>
+      <div class="service-card stagger-card"><div class="hud"><span class="bl"></span><span class="br"></span>
         <div class="service-tier">Engineering</div>
         <h3>Automation Architecture</h3>
         <div class="service-desc">Engineering autonomous security pipelines that eliminate manual overhead and reduce response time.</div>
@@ -356,7 +392,7 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
         <a href="#contact" class="btn btn-outline btn-sm">Request Quote</a>
       </div></div>
 
-      <div class="service-card"><div class="hud"><span class="bl"></span><span class="br"></span>
+      <div class="service-card stagger-card"><div class="hud"><span class="bl"></span><span class="br"></span>
         <div class="service-tier">Consulting</div>
         <h3>Strategic Advisory</h3>
         <div class="service-desc">Mapping technical roadmaps for security operations maturity. Cert planning, career architecture, compliance strategy.</div>
@@ -369,7 +405,7 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
         <a href="#contact" class="btn btn-primary btn-sm">Book a Call</a>
       </div></div>
 
-      <div class="service-card"><div class="hud"><span class="bl"></span><span class="br"></span>
+      <div class="service-card stagger-card"><div class="hud"><span class="bl"></span><span class="br"></span>
         <div class="service-tier">Intelligence</div>
         <h3>Technical Documentation</h3>
         <div class="service-desc">Production-grade study systems, operational templates, and security frameworks. Built from real certification campaigns.</div>
@@ -388,7 +424,7 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
 <!-- PRODUCTS -->
 <section id="products">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header reveal-left">
       <div class="label">// Quartermaster</div>
       <h2>Intelligence Assets</h2>
       <div class="line"></div>
@@ -432,7 +468,7 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
 <!-- THE CLIMB -->
 <section id="climb">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header reveal-left">
       <div class="label">// Operational Log</div>
       <h2>The Climb</h2>
       <div class="line"></div>
@@ -464,13 +500,13 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
 <!-- LIVE SHOWS -->
 <section id="shows">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header reveal-left">
       <div class="label">// Live Operations</div>
       <h2>Weekly Shows</h2>
       <div class="line"></div>
     </div>
     <div class="shows-grid">
-      <div class="show-card"><div class="hud" style="border-top-color:var(--red);"><span class="bl"></span><span class="br"></span>
+      <div class="show-card stagger-card"><div class="hud" style="border-top-color:var(--red);"><span class="bl"></span><span class="br"></span>
         <div class="show-day">Every Tuesday</div>
         <h3>Threat Brief LIVE</h3>
         <div class="show-time">8:00 PM ET, 60 min</div>
@@ -478,7 +514,7 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
         <div class="show-platform">MULTISTREAM: TikTok + YouTube</div>
       </div></div>
 
-      <div class="show-card"><div class="hud" style="border-top-color:var(--gold);"><span class="bl"></span><span class="br"></span>
+      <div class="show-card stagger-card"><div class="hud" style="border-top-color:var(--gold);"><span class="bl"></span><span class="br"></span>
         <div class="show-day">Every Thursday</div>
         <h3>The Build LIVE</h3>
         <div class="show-time">8:00 PM ET, 75 min</div>
@@ -486,7 +522,7 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
         <div class="show-platform">MULTISTREAM: TikTok + YouTube</div>
       </div></div>
 
-      <div class="show-card"><div class="hud" style="border-top-color:var(--cyan);"><span class="bl"></span><span class="br"></span>
+      <div class="show-card stagger-card"><div class="hud" style="border-top-color:var(--cyan);"><span class="bl"></span><span class="br"></span>
         <div class="show-day">Every Saturday</div>
         <h3>Open Channel</h3>
         <div class="show-time">12:00 PM ET, 90 min</div>
@@ -500,7 +536,7 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
 <!-- CONTACT -->
 <section id="contact">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header reveal-left">
       <div class="label">// Comms</div>
       <h2>Connect</h2>
       <div class="line"></div>
@@ -620,6 +656,64 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     });
   }, { threshold: 0.5 });
   stats.forEach(s => observer.observe(s));
+})();
+
+// SCROLL REVEALS
+(function() {
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal, .reveal-left').forEach(el => revealObserver.observe(el));
+
+  // Staggered cards
+  const cardObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const parent = entry.target.parentElement;
+        const cards = parent.querySelectorAll('.stagger-card');
+        cards.forEach((card, i) => {
+          setTimeout(() => card.classList.add('visible'), i * 120);
+        });
+        cardObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.stagger-card:first-child').forEach(el => cardObserver.observe(el));
+
+  // Cert glow
+  const glowObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const cards = entry.target.closest('.cert-grid').querySelectorAll('.cert-card');
+        cards.forEach((card, i) => {
+          setTimeout(() => {
+            card.classList.add('glow');
+            setTimeout(() => card.classList.remove('glow'), 1200);
+          }, i * 150);
+        });
+        glowObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  const firstCert = document.querySelector('.cert-card');
+  if (firstCert) glowObserver.observe(firstCert);
+
+  // HUD corner draw-in
+  const hudObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('drawn');
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.hud-animate').forEach(el => hudObserver.observe(el));
+
+  // Nav glow on scroll
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 50);
+  });
 })();
 </script>
 

@@ -1,1 +1,554 @@
-<!DOCTYPE html><html><body>placeholder</body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>◉ COREDIRECTIVE — Cybersecurity. AI. The Climb.</title>
+<meta name="description" content="CoreDirective is a cybersecurity intelligence operation run by Siege. 6x certified. Building in public. Your clearance starts here.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --void: #0A0A0A; --dark: #1A1A1A; --mid: #333333; --light: #888888;
+  --green: #00FF41; --red: #FF3366; --gold: #FFB800; --cyan: #00D4FF; --purple: #BF5AF2;
+  --white: #FFFFFF;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--void); color: var(--white); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.6; overflow-x: hidden; }
+.mono { font-family: 'JetBrains Mono', monospace; }
+
+/* HUD Corner Brackets */
+.hud-card {
+  background: var(--dark); border: 1px solid var(--mid); padding: 24px; position: relative;
+  margin-bottom: 24px;
+}
+.hud-card::before, .hud-card::after,
+.hud-card .corner-bl::before, .hud-card .corner-br::before {
+  content: ''; position: absolute; width: 16px; height: 16px; border-color: var(--green); border-style: solid;
+}
+.hud-card::before { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+.hud-card::after { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
+.hud-card .corner-bl::before { bottom: -1px; left: -1px; border-width: 0 0 2px 2px; position: absolute; }
+.hud-card .corner-br::before { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; position: absolute; }
+
+/* Simpler corner approach */
+.hud { position: relative; background: var(--dark); border: 1px solid var(--mid); padding: 28px; }
+.hud::before { content: ''; position: absolute; top: -1px; left: -1px; width: 20px; height: 20px; border-top: 2px solid var(--green); border-left: 2px solid var(--green); }
+.hud::after { content: ''; position: absolute; top: -1px; right: -1px; width: 20px; height: 20px; border-top: 2px solid var(--green); border-right: 2px solid var(--green); }
+.hud .bl { position: absolute; bottom: -1px; left: -1px; width: 20px; height: 20px; border-bottom: 2px solid var(--green); border-left: 2px solid var(--green); }
+.hud .br { position: absolute; bottom: -1px; right: -1px; width: 20px; height: 20px; border-bottom: 2px solid var(--green); border-right: 2px solid var(--green); }
+
+a { color: var(--green); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+section { padding: 80px 0; border-bottom: 1px solid var(--mid); }
+
+/* HERO */
+.hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; }
+.hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(0,255,65,0.03) 0%, transparent 70%); }
+.hero-badge { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--light); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 20px; }
+.hero h1 { font-size: clamp(36px, 7vw, 72px); font-weight: 800; letter-spacing: 2px; margin-bottom: 12px; }
+.hero h1 .icon { color: var(--green); }
+.hero .tagline { font-family: 'JetBrains Mono', monospace; font-size: clamp(14px, 2.5vw, 20px); color: var(--green); margin-bottom: 24px; letter-spacing: 2px; }
+.hero .intro { max-width: 600px; margin: 0 auto 32px; color: var(--light); font-size: 16px; line-height: 1.7; }
+.btn { display: inline-block; padding: 14px 28px; font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border: 1px solid; cursor: pointer; transition: all 0.2s; text-decoration: none !important; }
+.btn-primary { background: var(--green); color: var(--void); border-color: var(--green); }
+.btn-primary:hover { background: transparent; color: var(--green); }
+.btn-outline { background: transparent; color: var(--cyan); border-color: var(--cyan); }
+.btn-outline:hover { background: var(--cyan); color: var(--void); }
+.hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.status-line { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--light); margin-top: 40px; }
+.status-line .pulse { display: inline-block; color: var(--green); animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+/* Section Headers */
+.section-header { margin-bottom: 48px; }
+.section-header .label { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--green); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
+.section-header h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 800; }
+.section-header .line { width: 60px; height: 2px; background: var(--green); margin-top: 12px; }
+
+/* ABOUT */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+.about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+.stat { background: var(--void); border: 1px solid var(--mid); padding: 16px; text-align: center; }
+.stat .num { font-family: 'JetBrains Mono', monospace; font-size: 28px; font-weight: 700; color: var(--green); }
+.stat .lbl { font-size: 12px; color: var(--light); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+.about-text p { color: #ccc; margin-bottom: 16px; line-height: 1.8; }
+.callsign { font-family: 'JetBrains Mono', monospace; color: var(--gold); font-size: 14px; margin-bottom: 16px; }
+
+/* CERTS */
+.cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+.cert-card { position: relative; }
+.cert-card .hud { padding: 24px; }
+.cert-badge { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 1px; padding: 3px 8px; border: 1px solid; display: inline-block; margin-bottom: 12px; }
+.badge-cleared { color: var(--green); border-color: var(--green); }
+.badge-progress { color: var(--gold); border-color: var(--gold); }
+.cert-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+.cert-card .cert-meta { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--light); margin-bottom: 4px; }
+.cert-card .cert-note { font-style: italic; color: var(--green); font-size: 13px; margin-top: 12px; line-height: 1.5; }
+.cert-card .doc-id { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #555; margin-top: 12px; }
+
+/* SERVICES */
+.service-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
+.service-card .hud { height: 100%; display: flex; flex-direction: column; }
+.service-tier { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--cyan); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+.service-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+.service-price { font-family: 'JetBrains Mono', monospace; font-size: 28px; font-weight: 700; color: var(--green); margin-bottom: 12px; }
+.service-desc { color: var(--light); font-size: 14px; margin-bottom: 16px; flex-grow: 1; }
+.service-list { list-style: none; margin-bottom: 20px; }
+.service-list li { font-size: 13px; color: #ccc; padding: 4px 0; padding-left: 16px; position: relative; }
+.service-list li::before { content: '›'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+.btn-sm { padding: 10px 20px; font-size: 12px; width: 100%; text-align: center; }
+
+/* PRODUCTS */
+.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+.product-card .hud { text-align: center; }
+.product-price { font-family: 'JetBrains Mono', monospace; font-size: 24px; font-weight: 700; color: var(--gold); margin: 12px 0; }
+.product-card h3 { font-size: 16px; font-weight: 700; }
+.product-card p { font-size: 13px; color: var(--light); margin-bottom: 16px; }
+.free-tag { color: var(--green); }
+
+/* THE CLIMB */
+.progress-wrap { margin: 32px 0; }
+.progress-label { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--white); margin-bottom: 8px; }
+.progress-bar { display: flex; gap: 3px; margin-bottom: 8px; }
+.progress-block { flex: 1; height: 24px; background: var(--mid); border-radius: 2px; transition: background 0.3s; }
+.progress-block.filled { background: var(--green); box-shadow: 0 0 6px rgba(0,255,65,0.3); }
+.progress-stats { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--light); display: flex; justify-content: space-between; }
+.schedule-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin-top: 32px; }
+.schedule-item { background: var(--void); border: 1px solid var(--mid); padding: 16px; }
+.schedule-item .day { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--cyan); letter-spacing: 2px; text-transform: uppercase; }
+.schedule-item .output { font-size: 14px; margin-top: 4px; color: #ccc; }
+
+/* LIVE SHOWS */
+.shows-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
+.show-card .hud { border-top: 3px solid var(--green); }
+.show-day { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+.show-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+.show-time { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--green); margin-bottom: 12px; }
+.show-card p { font-size: 14px; color: var(--light); line-height: 1.6; }
+.show-platform { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--cyan); margin-top: 12px; }
+
+/* CONTACT */
+.contact-links { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 32px; }
+.contact-link { display: flex; align-items: center; gap: 10px; background: var(--dark); border: 1px solid var(--mid); padding: 14px 20px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--white); transition: border-color 0.2s; }
+.contact-link:hover { border-color: var(--green); color: var(--green); text-decoration: none; }
+.contact-email { font-family: 'JetBrains Mono', monospace; font-size: 16px; color: var(--green); margin-top: 24px; }
+
+/* FOOTER */
+footer { padding: 40px 0; text-align: center; }
+footer .logo { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--light); margin-bottom: 8px; }
+footer .copy { font-size: 12px; color: #555; }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,10,10,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--mid); padding: 12px 0; }
+nav .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+nav .brand { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 14px; color: var(--white); }
+nav .brand .g { color: var(--green); }
+nav .nav-links { display: flex; gap: 24px; }
+nav .nav-links a { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--light); letter-spacing: 1px; text-transform: uppercase; }
+nav .nav-links a:hover { color: var(--green); text-decoration: none; }
+.menu-toggle { display: none; background: none; border: 1px solid var(--mid); color: var(--green); font-family: 'JetBrains Mono', monospace; font-size: 12px; padding: 6px 12px; cursor: pointer; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .about-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none !important; }
+  .nav-links.open { display: flex !important; position: absolute; top: 100%; left: 0; right: 0; background: var(--void); flex-direction: column; padding: 16px 20px; border-bottom: 1px solid var(--mid); gap: 12px; }
+  .menu-toggle { display: block; }
+  section { padding: 60px 0; }
+}
+@media (max-width: 480px) {
+  .cert-grid, .service-grid, .shows-grid, .product-grid { grid-template-columns: 1fr; }
+  .hero-buttons { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="brand"><span class="g">◉</span> COREDIRECTIVE</div>
+    <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">MENU</button>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#certs">Certs</a>
+      <a href="#services">Services</a>
+      <a href="#products">Products</a>
+      <a href="#climb">The Climb</a>
+      <a href="#shows">Live</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="hero-badge">[ PUBLIC ] — Operations Hub</div>
+    <h1><span class="icon">◉</span> COREDIRECTIVE</h1>
+    <div class="tagline">Cybersecurity. AI. The Climb.</div>
+    <p class="intro">I'm Siege. 6x certified cybersecurity operative. Building financial freedom in public, arming operatives with real intel, and laying siege to every barrier between you and the career you want. No gatekeepers. No prerequisites. No excuses.</p>
+    <div class="hero-buttons">
+      <a href="#services" class="btn btn-primary">Book a Consult</a>
+      <a href="#certs" class="btn btn-outline">View Certifications</a>
+    </div>
+    <div class="status-line"><span class="pulse">◉</span> SYSTEMS ONLINE — SIEGE REPORTING IN</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-header">
+      <div class="label">// Operative Dossier</div>
+      <h2>About Siege</h2>
+      <div class="line"></div>
+    </div>
+    <div class="about-grid">
+      <div>
+        <div class="callsign">CALLSIGN: SIEGE // CLEARANCE LEVEL: 6</div>
+        <div class="about-text">
+          <p>Emmanuel Tigoue. Atlanta. GSU graduating May 2026 — CIS Cybersecurity + Business Economics. I didn't wait for the degree to start building clearance. I stacked 6 certifications while fighting sickle cell crises, managing ADHD, and carrying $70K in debt.</p>
+          <p>CoreDirective isn't a brand I hired someone to build. It's an operation I run. Every briefing comes from someone in the field — not theory, not secondhand, first-person intel. I document the climb in real time because proof beats promises.</p>
+          <p>The mission: arm every operative with cybersecurity intelligence, AI leverage, and tactical clarity to secure their future. I'm not here to gatekeep. I'm here to hand you the keys and show you which doors to kick open.</p>
+        </div>
+      </div>
+      <div>
+        <div class="about-stats">
+          <div class="stat"><div class="num">6</div><div class="lbl">Certifications</div></div>
+          <div class="stat"><div class="num">$70K</div><div class="lbl">Debt Under Siege</div></div>
+          <div class="stat"><div class="num">18</div><div class="lbl">Integrated Services</div></div>
+          <div class="stat"><div class="num">∞</div><div class="lbl">Quit Attempts: 0</div></div>
+        </div>
+        <div class="hud" style="margin-top:24px;">
+          <span class="bl"></span><span class="br"></span>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--light);margin-bottom:8px;">ORACLE ANALYSIS:</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--cyan);line-height:1.7;">
+            Operative SIEGE demonstrates sustained mission commitment despite concurrent health, financial, and academic vectors. Probability of objective completion: <span style="color:var(--green);">HIGH</span>.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certs">
+  <div class="container">
+    <div class="section-header">
+      <div class="label">// Clearance Stack</div>
+      <h2>Certifications</h2>
+      <div class="line"></div>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-card"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <span class="cert-badge badge-cleared">◉ CLEARED</span>
+        <h3>CompTIA CASP+</h3>
+        <div class="cert-meta">Advanced Security Practitioner</div>
+        <div class="cert-meta">Clearance Level: Elite</div>
+        <div class="cert-note">"The hardest one. Proved I belong at the advanced table."</div>
+        <div class="doc-id">CD-CERT-001</div>
+      </div></div>
+
+      <div class="cert-card"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <span class="cert-badge badge-cleared">◉ CLEARED</span>
+        <h3>Cisco CCNA</h3>
+        <div class="cert-meta">Network Associate</div>
+        <div class="cert-meta">Clearance Level: Advanced</div>
+        <div class="cert-note">"Networking is the backbone. You can't secure what you don't understand."</div>
+        <div class="doc-id">CD-CERT-002</div>
+      </div></div>
+
+      <div class="cert-card"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <span class="cert-badge badge-cleared">◉ CLEARED</span>
+        <h3>ISC² SSCP</h3>
+        <div class="cert-meta">Systems Security Certified Practitioner</div>
+        <div class="cert-meta">Clearance Level: Advanced</div>
+        <div class="cert-note">"ISC² validates you different. This one opens doors."</div>
+        <div class="doc-id">CD-CERT-003</div>
+      </div></div>
+
+      <div class="cert-card"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <span class="cert-badge badge-cleared">◉ CLEARED</span>
+        <h3>CompTIA Security+</h3>
+        <div class="cert-meta">Security Fundamentals</div>
+        <div class="cert-meta">Clearance Level: Intermediate</div>
+        <div class="cert-note">"Your entry ticket. Don't overthink it. Just pass it."</div>
+        <div class="doc-id">CD-CERT-004</div>
+      </div></div>
+
+      <div class="cert-card"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <span class="cert-badge badge-cleared">◉ CLEARED</span>
+        <h3>ISC² CC</h3>
+        <div class="cert-meta">Certified in Cybersecurity</div>
+        <div class="cert-meta">Clearance Level: Foundation</div>
+        <div class="cert-note">"Free exam, real credential. No excuse not to get this."</div>
+        <div class="doc-id">CD-CERT-005</div>
+      </div></div>
+
+      <div class="cert-card"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <span class="cert-badge badge-cleared">◉ CLEARED</span>
+        <h3>CompTIA Network+</h3>
+        <div class="cert-meta">Networking Fundamentals</div>
+        <div class="cert-meta">Clearance Level: Foundation</div>
+        <div class="cert-note">"Took two tries. I don't hide that. The lesson was worth the retake."</div>
+        <div class="doc-id">CD-CERT-006</div>
+      </div></div>
+
+      <div class="cert-card"><div class="hud" style="border-color:var(--gold);">
+        <span class="bl" style="border-color:var(--gold);"></span><span class="br" style="border-color:var(--gold);"></span>
+        <span class="cert-badge badge-progress">◎ IN PROGRESS</span>
+        <h3>AWS Security Specialty</h3>
+        <div class="cert-meta">Cloud Security</div>
+        <div class="cert-meta">Clearance Level: Advanced</div>
+        <div class="cert-note">"Cloud is the battlefield now. This is next."</div>
+        <div class="doc-id">CD-CERT-007</div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-header">
+      <div class="label">// Service+ Operations</div>
+      <h2>Services</h2>
+      <div class="line"></div>
+    </div>
+    <div class="service-grid">
+      <div class="service-card"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <div class="service-tier">Tier 1</div>
+        <h3>Clearance Check</h3>
+        <div class="service-price">$49</div>
+        <div class="service-desc">Get your cybersecurity career path mapped in 30 minutes.</div>
+        <ul class="service-list">
+          <li>30-min 1-on-1 video call</li>
+          <li>Custom cert roadmap</li>
+          <li>Actionable next steps PDF</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary btn-sm">Book Now</a>
+      </div></div>
+
+      <div class="service-card"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <div class="service-tier">Tier 2</div>
+        <h3>Tactical Review</h3>
+        <div class="service-price">$99</div>
+        <div class="service-desc">Resume, LinkedIn, and strategy — reviewed by an operative with 6 clearances.</div>
+        <ul class="service-list">
+          <li>60-min deep session</li>
+          <li>Resume teardown + rewrite guidance</li>
+          <li>Interview prep & salary tactics</li>
+          <li>Session recording included</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary btn-sm">Book Now</a>
+      </div></div>
+
+      <div class="service-card"><div class="hud" style="border-color:var(--gold);"><span class="bl" style="border-color:var(--gold);"></span><span class="br" style="border-color:var(--gold);"></span>
+        <div class="service-tier" style="color:var(--gold);">Tier 3 — Most Popular</div>
+        <h3>Mission Planning</h3>
+        <div class="service-price">$199</div>
+        <div class="service-desc">A complete cybersecurity career battle plan. Built for you. By Siege.</div>
+        <ul class="service-list">
+          <li>90-min deep dive</li>
+          <li>Full career strategy + cert roadmap</li>
+          <li>Resume + LinkedIn overhaul</li>
+          <li>ADHD-friendly study schedule</li>
+          <li>2 weeks email follow-up</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary btn-sm" style="background:var(--gold);border-color:var(--gold);">Book Now</a>
+      </div></div>
+
+      <div class="service-card"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <div class="service-tier">Tier 4</div>
+        <h3>Security Audit Lite</h3>
+        <div class="service-price">$149</div>
+        <div class="service-desc">I'll find what's wrong before someone else does.</div>
+        <ul class="service-list">
+          <li>Small business security assessment</li>
+          <li>Email, passwords, network, cloud review</li>
+          <li>Written report + fix-it priorities</li>
+          <li>30-min walkthrough call</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary btn-sm">Book Now</a>
+      </div></div>
+
+      <div class="service-card"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <div class="service-tier">Tier 5</div>
+        <h3>AI Automation Setup</h3>
+        <div class="service-price">$249</div>
+        <div class="service-desc">I'll build the system. You push the button.</div>
+        <ul class="service-list">
+          <li>Custom n8n workflow build</li>
+          <li>Built, tested, documented</li>
+          <li>30-min training call</li>
+          <li>Use cases: email, social, data, alerts</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary btn-sm">Book Now</a>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="container">
+    <div class="section-header">
+      <div class="label">// Quartermaster</div>
+      <h2>Products</h2>
+      <div class="line"></div>
+    </div>
+    <div class="product-grid">
+      <div class="product-card"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <h3>CCNA Study Template</h3>
+        <p>Notion template. The exact system I used to pass CCNA.</p>
+        <div class="product-price">$40</div>
+        <a href="https://coredirective.gumroad.com" class="btn btn-primary btn-sm" target="_blank">Get It</a>
+      </div></div>
+
+      <div class="product-card"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <h3>Security+ Study Template</h3>
+        <p>Notion template. Structured, no-fluff study system for Sec+.</p>
+        <div class="product-price">$30</div>
+        <a href="https://coredirective.gumroad.com" class="btn btn-primary btn-sm" target="_blank">Get It</a>
+      </div></div>
+
+      <div class="product-card"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <h3>Network+ Study Template</h3>
+        <p>Notion template. Free because everyone deserves a starting point.</p>
+        <div class="product-price free-tag">FREE</div>
+        <a href="https://coredirective.gumroad.com" class="btn btn-outline btn-sm" target="_blank">Download</a>
+      </div></div>
+
+      <div class="product-card"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <h3>7-Cert Cybersecurity Roadmap</h3>
+        <p>The exact path I took. Which certs, what order, why it works.</p>
+        <div class="product-price">$19</div>
+        <a href="https://coredirective.gumroad.com" class="btn btn-primary btn-sm" target="_blank">Get It</a>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- THE CLIMB -->
+<section id="climb">
+  <div class="container">
+    <div class="section-header">
+      <div class="label">// Operation Zero Debt</div>
+      <h2>The Climb</h2>
+      <div class="line"></div>
+    </div>
+    <div class="hud" style="max-width:700px;">
+      <span class="bl"></span><span class="br"></span>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--white);margin-bottom:16px;">OPERATION ZERO DEBT</div>
+      <div class="progress-bar" id="debtBar"></div>
+      <div class="progress-stats">
+        <span style="color:var(--red);">$70,000 TARGET</span>
+        <span style="color:var(--green);">ACTIVE</span>
+      </div>
+      <p style="color:var(--light);font-size:14px;margin-top:16px;line-height:1.7;">$70K in debt. Documented in real time. Every payment is an attack on its position. Every dollar earned through services, products, and the grind is a round fired. This isn't motivational content — it's a war log.</p>
+    </div>
+
+    <div style="margin-top:48px;">
+      <h3 style="font-size:20px;font-weight:700;margin-bottom:16px;">Weekly Content Schedule</h3>
+      <div class="schedule-grid">
+        <div class="schedule-item"><div class="day">Mon–Sat</div><div class="output">3-5 TikToks + Shorts daily</div></div>
+        <div class="schedule-item"><div class="day">Tuesday</div><div class="output">Threat Brief LIVE — 8 PM ET</div></div>
+        <div class="schedule-item"><div class="day">Thursday</div><div class="output">The Climb LIVE — 8 PM ET</div></div>
+        <div class="schedule-item"><div class="day">Saturday</div><div class="output">Open Channel LIVE — 12 PM ET</div></div>
+        <div class="schedule-item"><div class="day">Weekly</div><div class="output">1 YouTube long-form briefing</div></div>
+        <div class="schedule-item"><div class="day">Sunday</div><div class="output">Rest. Even operatives recharge.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE SHOWS -->
+<section id="shows">
+  <div class="container">
+    <div class="section-header">
+      <div class="label">// Live Operations</div>
+      <h2>Weekly Shows</h2>
+      <div class="line"></div>
+    </div>
+    <div class="shows-grid">
+      <div class="show-card"><div class="hud" style="border-top-color:var(--red);"><span class="bl"></span><span class="br"></span>
+        <div class="show-day">Every Tuesday</div>
+        <h3>Threat Brief LIVE</h3>
+        <div class="show-time">8:00 PM ET — 60 min</div>
+        <p>Real-time cybersecurity news, threat analysis, and tactical breakdowns. The week's biggest security events, decoded by an operative in the field. Bring questions.</p>
+        <div class="show-platform">MULTISTREAM: TikTok + YouTube</div>
+      </div></div>
+
+      <div class="show-card"><div class="hud" style="border-top-color:var(--gold);"><span class="bl"></span><span class="br"></span>
+        <div class="show-day">Every Thursday</div>
+        <h3>The Climb</h3>
+        <div class="show-time">8:00 PM ET — 75 min</div>
+        <p>The podcast. The journey. Cert progress, debt updates, career moves, and real talk about building from nothing. No filter. Also available as a podcast.</p>
+        <div class="show-platform">MULTISTREAM: TikTok + YouTube</div>
+      </div></div>
+
+      <div class="show-card"><div class="hud" style="border-top-color:var(--cyan);"><span class="bl"></span><span class="br"></span>
+        <div class="show-day">Every Saturday</div>
+        <h3>Open Channel</h3>
+        <div class="show-time">12:00 PM ET — 90 min</div>
+        <p>Casual AMA. Career questions, cert advice, tech talk, whatever's on your mind. The most relaxed briefing of the week. Pull up.</p>
+        <div class="show-platform">MULTISTREAM: TikTok + YouTube</div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-header">
+      <div class="label">// Comms</div>
+      <h2>Connect</h2>
+      <div class="line"></div>
+    </div>
+    <p style="color:var(--light);max-width:500px;margin-bottom:8px;">Join the Directive. Follow the operation. Book a session. Whatever your next move is — make it.</p>
+    <div class="contact-links">
+      <a href="https://www.tiktok.com/@coredirective" target="_blank" class="contact-link">▶ TikTok</a>
+      <a href="https://www.youtube.com/@coredirective" target="_blank" class="contact-link">▶ YouTube</a>
+      <a href="https://www.linkedin.com/in/emmanueltigoue" target="_blank" class="contact-link">▶ LinkedIn</a>
+      <a href="https://coredirective.gumroad.com" target="_blank" class="contact-link">▶ Gumroad</a>
+      <a href="join.html" class="contact-link" style="border-color:var(--green);">▶ Join Secure Channel</a>
+    </div>
+    <div class="contact-email">emmanueltigoue@gmail.com</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#555;margin-top:8px;">Your clearance starts here.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="logo"><span style="color:var(--green);">◉</span> COREDIRECTIVE</div>
+    <div class="copy" style="font-family:'JetBrains Mono',monospace;">SIEGE // 2026 — No gatekeepers. No prerequisites. No excuses.</div>
+  </div>
+</footer>
+
+<script>
+// Build progress bar (20 segments)
+const bar = document.getElementById('debtBar');
+const filled = 0; // Update this as debt gets paid: each block = 5%
+for (let i = 0; i < 20; i++) {
+  const block = document.createElement('div');
+  block.className = 'progress-block' + (i < filled ? ' filled' : '');
+  bar.appendChild(block);
+}
+
+// Smooth scroll for nav links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+
+</body>
+</html>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>◉ COREDIRECTIVE — Cybersecurity. AI. The Climb.</title>
-<meta name="description" content="CoreDirective is a cybersecurity intelligence operation run by Siege. Multi-certified. Building in public. Your clearance starts here.">
+<meta name="description" content="CoreDirective is a cybersecurity and AI operation run by Emmanuel Tigoue. Multi-certified. Building in public. Your clearance starts here.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
@@ -18,21 +18,6 @@ html { scroll-behavior: smooth; }
 body { background: var(--void); color: var(--white); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.6; overflow-x: hidden; }
 .mono { font-family: 'JetBrains Mono', monospace; }
 
-/* HUD Corner Brackets */
-.hud-card {
-  background: var(--dark); border: 1px solid var(--mid); padding: 24px; position: relative;
-  margin-bottom: 24px;
-}
-.hud-card::before, .hud-card::after,
-.hud-card .corner-bl::before, .hud-card .corner-br::before {
-  content: ''; position: absolute; width: 16px; height: 16px; border-color: var(--green); border-style: solid;
-}
-.hud-card::before { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
-.hud-card::after { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
-.hud-card .corner-bl::before { bottom: -1px; left: -1px; border-width: 0 0 2px 2px; position: absolute; }
-.hud-card .corner-br::before { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; position: absolute; }
-
-/* Simpler corner approach */
 .hud { position: relative; background: var(--dark); border: 1px solid var(--mid); padding: 28px; }
 .hud::before { content: ''; position: absolute; top: -1px; left: -1px; width: 20px; height: 20px; border-top: 2px solid var(--green); border-left: 2px solid var(--green); }
 .hud::after { content: ''; position: absolute; top: -1px; right: -1px; width: 20px; height: 20px; border-top: 2px solid var(--green); border-right: 2px solid var(--green); }
@@ -81,10 +66,10 @@ section { padding: 80px 0; border-bottom: 1px solid var(--mid); }
 /* CERTS */
 .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
 .cert-card { position: relative; }
-.cert-card .hud { padding: 24px; }
+.cert-card .hud { padding: 24px; transition: border-color 0.3s, box-shadow 0.3s; }
+.cert-card .hud:hover { border-color: var(--green); box-shadow: 0 0 12px rgba(0,255,65,0.15); }
 .cert-badge { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 1px; padding: 3px 8px; border: 1px solid; display: inline-block; margin-bottom: 12px; }
 .badge-cleared { color: var(--green); border-color: var(--green); }
-.badge-progress { color: var(--gold); border-color: var(--gold); }
 .cert-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
 .cert-card .cert-meta { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--light); margin-bottom: 4px; }
 .cert-card .cert-note { font-style: italic; color: var(--green); font-size: 13px; margin-top: 12px; line-height: 1.5; }
@@ -94,8 +79,7 @@ section { padding: 80px 0; border-bottom: 1px solid var(--mid); }
 .service-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
 .service-card .hud { height: 100%; display: flex; flex-direction: column; }
 .service-tier { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--cyan); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
-.service-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
-.service-price { font-family: 'JetBrains Mono', monospace; font-size: 28px; font-weight: 700; color: var(--green); margin-bottom: 12px; }
+.service-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
 .service-desc { color: var(--light); font-size: 14px; margin-bottom: 16px; flex-grow: 1; }
 .service-list { list-style: none; margin-bottom: 20px; }
 .service-list li { font-size: 13px; color: #ccc; padding: 4px 0; padding-left: 16px; position: relative; }
@@ -124,11 +108,11 @@ section { padding: 80px 0; border-bottom: 1px solid var(--mid); }
 
 /* LIVE SHOWS */
 .shows-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
-.show-card .hud { border-top: 3px solid var(--green); }
+.show-card .hud { border-top: 3px solid var(--green); min-height: 280px; display: flex; flex-direction: column; }
 .show-day { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
 .show-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
 .show-time { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--green); margin-bottom: 12px; }
-.show-card p { font-size: 14px; color: var(--light); line-height: 1.6; }
+.show-card p { font-size: 14px; color: var(--light); line-height: 1.6; flex-grow: 1; }
 .show-platform { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--cyan); margin-top: 12px; }
 
 /* CONTACT */
@@ -190,12 +174,12 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
     <div class="hero-badge">[ PUBLIC ] — Operations Hub</div>
     <h1><span class="icon">◉</span> COREDIRECTIVE</h1>
     <div class="tagline">Cybersecurity. AI. The Climb.</div>
-    <p class="intro">I'm Siege. Multi-certified cybersecurity operative. Building financial freedom in public, arming operatives with real intel, and laying siege to every barrier between you and the career you want. No gatekeepers. No prerequisites. No excuses.</p>
+    <p class="intro">I'm Emmanuel Tigoue. Multi-certified cybersecurity professional, building in public. I document everything, share real intel, and help people break into this field without gatekeepers, prerequisites, or excuses.</p>
     <div class="hero-buttons">
       <a href="#services" class="btn btn-primary">Book a Consult</a>
       <a href="#certs" class="btn btn-outline">View Certifications</a>
     </div>
-    <div class="status-line"><span class="pulse">◉</span> SYSTEMS ONLINE — SIEGE REPORTING IN</div>
+    <div class="status-line"><span class="pulse">◉</span> SYSTEMS ONLINE — COREDIRECTIVE ACTIVE</div>
   </div>
 </section>
 
@@ -204,30 +188,30 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
   <div class="container">
     <div class="section-header">
       <div class="label">// Operative Dossier</div>
-      <h2>About Siege</h2>
+      <h2>About ET</h2>
       <div class="line"></div>
     </div>
     <div class="about-grid">
       <div>
-        <div class="callsign">CALLSIGN: SIEGE // CLEARANCE LEVEL: MAX</div>
+        <div class="callsign">FOUNDER: EMMANUEL TIGOUE // CLEARANCE LEVEL: MAX</div>
         <div class="about-text">
-          <p>Emmanuel Tigoue. Atlanta. GSU graduating May 2026 — CIS Cybersecurity + Business Economics. I didn't wait for the degree to start building clearance. I stacked certifications while fighting sickle cell crises, managing ADHD, and carrying $70K in debt.</p>
-          <p>CoreDirective isn't a brand I hired someone to build. It's an operation I run. Every briefing comes from someone in the field — not theory, not secondhand, first-person intel. I document the climb in real time because proof beats promises.</p>
-          <p>The mission: arm every operative with cybersecurity intelligence, AI leverage, and tactical clarity to secure their future. I'm not here to gatekeep. I'm here to hand you the keys and show you which doors to kick open.</p>
+          <p>Emmanuel Tigoue. Atlanta. GSU graduating May 2026, CIS Cybersecurity + Business Economics. I didn't wait for the degree to start building clearance. I stacked certifications while fighting sickle cell crises, managing ADHD, and carrying real financial weight.</p>
+          <p>CoreDirective isn't a brand I hired someone to build. It's an operation I run. Every briefing comes from someone in the field. Not theory, not secondhand, first-person intel. I document the climb in real time because proof beats promises.</p>
+          <p>The mission: arm every person with cybersecurity intelligence and tactical clarity to secure their future. I'm not here to gatekeep. I'm here to hand you the keys and show you which doors to kick open.</p>
         </div>
       </div>
       <div>
         <div class="about-stats">
           <div class="stat"><div class="num">✓</div><div class="lbl">Multi-Certified</div></div>
-          <div class="stat"><div class="num">$70K</div><div class="lbl">Debt Under Siege</div></div>
-          <div class="stat"><div class="num">18</div><div class="lbl">Integrated Services</div></div>
+          <div class="stat"><div class="num">$0</div><div class="lbl">Revenue (Building)</div></div>
+          <div class="stat"><div class="num">18+</div><div class="lbl">Automated Services</div></div>
           <div class="stat"><div class="num">∞</div><div class="lbl">Quit Attempts: 0</div></div>
         </div>
         <div class="hud" style="margin-top:24px;">
           <span class="bl"></span><span class="br"></span>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--light);margin-bottom:8px;">ORACLE ANALYSIS:</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--light);margin-bottom:8px;">SYSTEM ANALYSIS:</div>
           <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--cyan);line-height:1.7;">
-            Operative SIEGE demonstrates sustained mission commitment despite concurrent health, financial, and academic vectors. Probability of objective completion: <span style="color:var(--green);">HIGH</span>.
+            Operative ET demonstrates sustained mission commitment despite concurrent health, financial, and academic vectors. Probability of objective completion: <span style="color:var(--green);">HIGH</span>.
           </div>
         </div>
       </div>
@@ -273,19 +257,19 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
 
       <div class="cert-card"><div class="hud"><span class="bl"></span><span class="br"></span>
         <span class="cert-badge badge-cleared">◉ CLEARED</span>
-        <h3>CompTIA Security+</h3>
-        <div class="cert-meta">Security Fundamentals</div>
-        <div class="cert-meta">Clearance Level: Intermediate</div>
-        <div class="cert-note">"Your entry ticket. Don't overthink it. Just pass it."</div>
+        <h3>AWS Security Specialty</h3>
+        <div class="cert-meta">Cloud Security</div>
+        <div class="cert-meta">Clearance Level: Advanced</div>
+        <div class="cert-note">"Cloud is the battlefield now."</div>
         <div class="doc-id">CD-CERT-004</div>
       </div></div>
 
       <div class="cert-card"><div class="hud"><span class="bl"></span><span class="br"></span>
         <span class="cert-badge badge-cleared">◉ CLEARED</span>
-        <h3>ISC² CC</h3>
-        <div class="cert-meta">Certified in Cybersecurity</div>
-        <div class="cert-meta">Clearance Level: Foundation</div>
-        <div class="cert-note">"Free exam, real credential. No excuse not to get this."</div>
+        <h3>CompTIA Security+</h3>
+        <div class="cert-meta">Security Fundamentals</div>
+        <div class="cert-meta">Clearance Level: Intermediate</div>
+        <div class="cert-note">"Your entry ticket. Don't overthink it. Just pass it."</div>
         <div class="doc-id">CD-CERT-005</div>
       </div></div>
 
@@ -300,10 +284,10 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
 
       <div class="cert-card"><div class="hud"><span class="bl"></span><span class="br"></span>
         <span class="cert-badge badge-cleared">◉ CLEARED</span>
-        <h3>AWS Security Specialty</h3>
-        <div class="cert-meta">Cloud Security</div>
-        <div class="cert-meta">Clearance Level: Advanced</div>
-        <div class="cert-note">"Cloud is the battlefield now."</div>
+        <h3>ISC² CC</h3>
+        <div class="cert-meta">Certified in Cybersecurity</div>
+        <div class="cert-meta">Clearance Level: Foundation</div>
+        <div class="cert-note">"Free exam, real credential. No excuse not to get this."</div>
         <div class="doc-id">CD-CERT-007</div>
       </div></div>
     </div>
@@ -314,79 +298,62 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
 <section id="services">
   <div class="container">
     <div class="section-header">
-      <div class="label">// Service+ Operations</div>
+      <div class="label">// Operations</div>
       <h2>Services</h2>
       <div class="line"></div>
     </div>
     <div class="service-grid">
       <div class="service-card"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <div class="service-tier">Tier 1</div>
+        <div class="service-tier">Career Intel</div>
         <h3>Clearance Check</h3>
-        <div class="service-price">$49</div>
-        <div class="service-desc">Get your cybersecurity career path mapped in 30 minutes.</div>
+        <div class="service-desc">Get your cybersecurity career path mapped in a focused 1-on-1 session.</div>
         <ul class="service-list">
-          <li>30-min 1-on-1 video call</li>
+          <li>30-min video call</li>
           <li>Custom cert roadmap</li>
-          <li>Actionable next steps PDF</li>
+          <li>Actionable next steps</li>
+          <li>Study templates included</li>
         </ul>
-        <a href="#contact" class="btn btn-primary btn-sm">Book Now</a>
+        <a href="#contact" class="btn btn-primary btn-sm">Book a Call</a>
       </div></div>
 
       <div class="service-card"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <div class="service-tier">Tier 2</div>
-        <h3>Tactical Review</h3>
-        <div class="service-price">$99</div>
-        <div class="service-desc">Resume, LinkedIn, and strategy — reviewed by a multi-certified operative.</div>
-        <ul class="service-list">
-          <li>60-min deep session</li>
-          <li>Resume teardown + rewrite guidance</li>
-          <li>Interview prep & salary tactics</li>
-          <li>Session recording included</li>
-        </ul>
-        <a href="#contact" class="btn btn-primary btn-sm">Book Now</a>
-      </div></div>
-
-      <div class="service-card"><div class="hud" style="border-color:var(--gold);"><span class="bl" style="border-color:var(--gold);"></span><span class="br" style="border-color:var(--gold);"></span>
-        <div class="service-tier" style="color:var(--gold);">Tier 3 — Most Popular</div>
+        <div class="service-tier">Strategy</div>
         <h3>Mission Planning</h3>
-        <div class="service-price">$199</div>
-        <div class="service-desc">A complete cybersecurity career battle plan. Built for you. By Siege.</div>
+        <div class="service-desc">Full cert planning and content strategy session. Built around your goals, your timeline, your situation.</div>
         <ul class="service-list">
           <li>90-min deep dive</li>
-          <li>Full career strategy + cert roadmap</li>
-          <li>Resume + LinkedIn overhaul</li>
-          <li>ADHD-friendly study schedule</li>
+          <li>Cert roadmap + study plan</li>
+          <li>Content strategy framework</li>
+          <li>Study templates included</li>
           <li>2 weeks email follow-up</li>
         </ul>
-        <a href="#contact" class="btn btn-primary btn-sm" style="background:var(--gold);border-color:var(--gold);">Book Now</a>
+        <a href="#contact" class="btn btn-primary btn-sm">Book a Call</a>
       </div></div>
 
       <div class="service-card"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <div class="service-tier">Tier 4</div>
-        <h3>Security Audit Lite</h3>
-        <div class="service-price">$149</div>
-        <div class="service-desc">I'll find what's wrong before someone else does.</div>
+        <div class="service-tier">Security</div>
+        <h3>Security Audit</h3>
+        <div class="service-desc">I find what's wrong before someone else does. Full security assessment for your business.</div>
         <ul class="service-list">
-          <li>Small business security assessment</li>
-          <li>Email, passwords, network, cloud review</li>
-          <li>Written report + fix-it priorities</li>
-          <li>30-min walkthrough call</li>
+          <li>Full security assessment</li>
+          <li>Network, cloud, email, access review</li>
+          <li>Written report with priorities</li>
+          <li>Walkthrough call included</li>
         </ul>
-        <a href="#contact" class="btn btn-primary btn-sm">Book Now</a>
+        <a href="#contact" class="btn btn-outline btn-sm">Request Quote</a>
       </div></div>
 
       <div class="service-card"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <div class="service-tier">Tier 5</div>
+        <div class="service-tier">Automation</div>
         <h3>AI Automation Setup</h3>
-        <div class="service-price">$249</div>
-        <div class="service-desc">I'll build the system. You push the button.</div>
+        <div class="service-desc">I build the system. You push the button. Scale-dependent pricing.</div>
         <ul class="service-list">
           <li>Custom n8n workflow build</li>
           <li>Built, tested, documented</li>
-          <li>30-min training call</li>
+          <li>Training call included</li>
           <li>Use cases: email, social, data, alerts</li>
         </ul>
-        <a href="#contact" class="btn btn-primary btn-sm">Book Now</a>
+        <a href="#contact" class="btn btn-outline btn-sm">Request Quote</a>
       </div></div>
     </div>
   </div>
@@ -402,31 +369,24 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
     </div>
     <div class="product-grid">
       <div class="product-card"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <h3>CCNA Study Template</h3>
+        <h3>CCNA 200-301 Cyber-Squire OS</h3>
         <p>Notion template. The exact system I used to pass CCNA.</p>
         <div class="product-price">$40</div>
-        <a href="https://coredirective.gumroad.com" class="btn btn-primary btn-sm" target="_blank">Get It</a>
+        <a href="https://gum.co/u/xetdgbo9?utm_source=portfolio&utm_medium=website" class="btn btn-primary btn-sm" target="_blank">Get It</a>
       </div></div>
 
       <div class="product-card"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <h3>Security+ Study Template</h3>
-        <p>Notion template. Structured, no-fluff study system for Sec+.</p>
+        <h3>Security+ 701 Cyber-Squire</h3>
+        <p>Notion template. Structured, no-fluff study system for Security+.</p>
         <div class="product-price">$30</div>
-        <a href="https://coredirective.gumroad.com" class="btn btn-primary btn-sm" target="_blank">Get It</a>
+        <a href="https://gum.co/u/46x2ujvh?utm_source=portfolio&utm_medium=website" class="btn btn-primary btn-sm" target="_blank">Get It</a>
       </div></div>
 
       <div class="product-card"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <h3>Network+ Study Template</h3>
+        <h3>Network+ 009 Cyber-Squire</h3>
         <p>Notion template. Free because everyone deserves a starting point.</p>
         <div class="product-price free-tag">FREE</div>
-        <a href="https://coredirective.gumroad.com" class="btn btn-outline btn-sm" target="_blank">Download</a>
-      </div></div>
-
-      <div class="product-card"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <h3>7-Cert Cybersecurity Roadmap</h3>
-        <p>The exact path I took. Which certs, what order, why it works.</p>
-        <div class="product-price">$19</div>
-        <a href="https://coredirective.gumroad.com" class="btn btn-primary btn-sm" target="_blank">Get It</a>
+        <a href="https://gum.co/u/a88bahum?utm_source=portfolio&utm_medium=website" class="btn btn-outline btn-sm" target="_blank">Download</a>
       </div></div>
     </div>
   </div>
@@ -436,28 +396,28 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
 <section id="climb">
   <div class="container">
     <div class="section-header">
-      <div class="label">// Operation Zero Debt</div>
+      <div class="label">// Revenue Tracker</div>
       <h2>The Climb</h2>
       <div class="line"></div>
     </div>
     <div class="hud" style="max-width:700px;">
       <span class="bl"></span><span class="br"></span>
-      <div style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--white);margin-bottom:16px;">OPERATION ZERO DEBT</div>
-      <div class="progress-bar" id="debtBar"></div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--white);margin-bottom:16px;">REVENUE TRACKER</div>
+      <div class="progress-bar" id="revenueBar"></div>
       <div class="progress-stats">
-        <span style="color:var(--red);">$70,000 TARGET</span>
+        <span style="color:var(--green);">$0 EARNED</span>
         <span style="color:var(--green);">ACTIVE</span>
       </div>
-      <p style="color:var(--light);font-size:14px;margin-top:16px;line-height:1.7;">$70K in debt. Documented in real time. Every payment is an attack on its position. Every dollar earned through services, products, and the grind is a round fired. This isn't motivational content — it's a war log.</p>
+      <p style="color:var(--light);font-size:14px;margin-top:16px;line-height:1.7;">Building from zero, documented in real time. Every dollar earned through services, products, and the grind gets tracked here. This isn't motivational content. It's a public ledger.</p>
     </div>
 
     <div style="margin-top:48px;">
       <h3 style="font-size:20px;font-weight:700;margin-bottom:16px;">Weekly Content Schedule</h3>
       <div class="schedule-grid">
-        <div class="schedule-item"><div class="day">Mon–Sat</div><div class="output">3-5 TikToks + Shorts daily</div></div>
-        <div class="schedule-item"><div class="day">Tuesday</div><div class="output">Threat Brief LIVE — 8 PM ET</div></div>
-        <div class="schedule-item"><div class="day">Thursday</div><div class="output">The Climb LIVE — 8 PM ET</div></div>
-        <div class="schedule-item"><div class="day">Saturday</div><div class="output">Open Channel LIVE — 12 PM ET</div></div>
+        <div class="schedule-item"><div class="day">Mon-Sat</div><div class="output">3-5 TikToks + Shorts daily</div></div>
+        <div class="schedule-item"><div class="day">Tuesday</div><div class="output">Threat Brief LIVE, 8 PM ET</div></div>
+        <div class="schedule-item"><div class="day">Thursday</div><div class="output">The Climb LIVE, 8 PM ET</div></div>
+        <div class="schedule-item"><div class="day">Saturday</div><div class="output">Open Channel LIVE, 12 PM ET</div></div>
         <div class="schedule-item"><div class="day">Weekly</div><div class="output">1 YouTube long-form briefing</div></div>
         <div class="schedule-item"><div class="day">Sunday</div><div class="output">Rest. Even operatives recharge.</div></div>
       </div>
@@ -477,23 +437,23 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
       <div class="show-card"><div class="hud" style="border-top-color:var(--red);"><span class="bl"></span><span class="br"></span>
         <div class="show-day">Every Tuesday</div>
         <h3>Threat Brief LIVE</h3>
-        <div class="show-time">8:00 PM ET — 60 min</div>
-        <p>Real-time cybersecurity news, threat analysis, and tactical breakdowns. The week's biggest security events, decoded by an operative in the field. Bring questions.</p>
+        <div class="show-time">8:00 PM ET, 60 min</div>
+        <p>Real-time cybersecurity news, threat analysis, and tactical breakdowns. The week's biggest security events, decoded live. Bring questions.</p>
         <div class="show-platform">MULTISTREAM: TikTok + YouTube</div>
       </div></div>
 
       <div class="show-card"><div class="hud" style="border-top-color:var(--gold);"><span class="bl"></span><span class="br"></span>
         <div class="show-day">Every Thursday</div>
         <h3>The Climb</h3>
-        <div class="show-time">8:00 PM ET — 75 min</div>
-        <p>The podcast. The journey. Cert progress, debt updates, career moves, and real talk about building from nothing. No filter. Also available as a podcast.</p>
+        <div class="show-time">8:00 PM ET, 75 min</div>
+        <p>The podcast. The journey. Cert progress, revenue updates, career moves, and real talk about building from nothing. No filter. Also available as a podcast.</p>
         <div class="show-platform">MULTISTREAM: TikTok + YouTube</div>
       </div></div>
 
       <div class="show-card"><div class="hud" style="border-top-color:var(--cyan);"><span class="bl"></span><span class="br"></span>
         <div class="show-day">Every Saturday</div>
         <h3>Open Channel</h3>
-        <div class="show-time">12:00 PM ET — 90 min</div>
+        <div class="show-time">12:00 PM ET, 90 min</div>
         <p>Casual AMA. Career questions, cert advice, tech talk, whatever's on your mind. The most relaxed briefing of the week. Pull up.</p>
         <div class="show-platform">MULTISTREAM: TikTok + YouTube</div>
       </div></div>
@@ -509,15 +469,16 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
       <h2>Connect</h2>
       <div class="line"></div>
     </div>
-    <p style="color:var(--light);max-width:500px;margin-bottom:8px;">Join the Directive. Follow the operation. Book a session. Whatever your next move is — make it.</p>
+    <p style="color:var(--light);max-width:500px;margin-bottom:8px;">Follow the operation. Book a session. Whatever your next move is, make it.</p>
     <div class="contact-links">
-      <a href="https://www.tiktok.com/@coredirective" target="_blank" class="contact-link">▶ TikTok</a>
-      <a href="https://www.youtube.com/@coredirective" target="_blank" class="contact-link">▶ YouTube</a>
-      <a href="https://www.linkedin.com/in/emmanueltigoue" target="_blank" class="contact-link">▶ LinkedIn</a>
-      <a href="https://coredirective.gumroad.com" target="_blank" class="contact-link">▶ Gumroad</a>
+      <a href="https://www.tiktok.com/@coredirective.official?utm_source=portfolio&utm_medium=website" target="_blank" class="contact-link">▶ TikTok</a>
+      <a href="https://www.youtube.com/@coredirective.official?utm_source=portfolio&utm_medium=website" target="_blank" class="contact-link">▶ YouTube</a>
+      <a href="https://www.facebook.com/coredirective.official?utm_source=portfolio&utm_medium=website" target="_blank" class="contact-link">▶ Facebook</a>
+      <a href="https://www.linkedin.com/in/emmanuel-tigoue-672378307?utm_source=portfolio&utm_medium=website" target="_blank" class="contact-link">▶ LinkedIn</a>
+      <a href="https://coredirective1.gumroad.com?utm_source=portfolio&utm_medium=website" target="_blank" class="contact-link">▶ Gumroad</a>
       <a href="join.html" class="contact-link" style="border-color:var(--green);">▶ Join Secure Channel</a>
     </div>
-    <div class="contact-email">emmanueltigoue@gmail.com</div>
+    <div class="contact-email">support@tigouetheory.com</div>
     <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#555;margin-top:8px;">Your clearance starts here.</div>
   </div>
 </section>
@@ -525,14 +486,14 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
 <footer>
   <div class="container">
     <div class="logo"><span style="color:var(--green);">◉</span> COREDIRECTIVE</div>
-    <div class="copy" style="font-family:'JetBrains Mono',monospace;">SIEGE // 2026 — No gatekeepers. No prerequisites. No excuses.</div>
+    <div class="copy" style="font-family:'JetBrains Mono',monospace;">COREDIRECTIVE // 2026 — No gatekeepers. No prerequisites. No excuses.</div>
   </div>
 </footer>
 
 <script>
-// Build progress bar (20 segments)
-const bar = document.getElementById('debtBar');
-const filled = 0; // Update this as debt gets paid: each block = 5%
+// Build revenue progress bar (20 segments)
+const bar = document.getElementById('revenueBar');
+const filled = 0; // Update this as revenue grows: each block = 5%
 for (let i = 0; i < 20; i++) {
   const block = document.createElement('div');
   block.className = 'progress-block' + (i < filled ? ' filled' : '');

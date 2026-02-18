@@ -3,23 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Emmanuel Tigoue | Security Engineer | CASP+ CCNA SSCP</title>
-<meta name="description" content="Emmanuel Tigoue — Security Engineer with CASP+ (DoD 8140), AWS Security Specialty, SSCP, and CCNA. Cloud security, Zero Trust architecture, and security automation. Currently seeking Security Engineer roles.">
+<title>CoreDirective | Cybersecurity Frameworks, Automation & Intelligence</title>
+<meta name="description" content="CoreDirective — Tactical cybersecurity operations. Certification frameworks, security automation, and threat intelligence. No gatekeepers. No excuses.">
 <!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Emmanuel Tigoue | Security Engineer">
-<meta property="og:description" content="Security Engineer. CASP+ (DoD 8140), AWS Security Specialty, SSCP, CCNA certified. Cloud security and automation.">
-<meta property="og:url" content="https://etcodin.github.io/coredirective-portfolio/">
-<meta property="og:image" content="https://etcodin.github.io/coredirective-portfolio/og-image.png">
+<meta property="og:title" content="CoreDirective | Cybersecurity Operations Hub">
+<meta property="og:description" content="Certification frameworks, security automation, and weekly threat intelligence. Tactical cybersecurity operations.">
+<meta property="og:url" content="https://et-sec.github.io/coredirective-portfolio/">
+<meta property="og:image" content="https://et-sec.github.io/coredirective-portfolio/og-image.png">
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Emmanuel Tigoue | Security Engineer">
-<meta name="twitter:description" content="Security Engineer. CASP+ (DoD 8140), AWS Security Specialty, SSCP, CCNA certified. Cloud security and automation.">
-<meta name="twitter:image" content="https://etcodin.github.io/coredirective-portfolio/og-image.png">
+<meta name="twitter:title" content="CoreDirective | Cybersecurity Operations Hub">
+<meta name="twitter:description" content="Certification frameworks, security automation, and weekly threat intelligence. Tactical cybersecurity operations.">
+<meta name="twitter:image" content="https://et-sec.github.io/coredirective-portfolio/og-image.png">
 <!-- Canonical -->
-<link rel="canonical" href="https://etcodin.github.io/coredirective-portfolio/">
+<link rel="canonical" href="https://et-sec.github.io/coredirective-portfolio/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
@@ -54,7 +54,7 @@ section { padding: 80px 0; border-bottom: 1px solid var(--mid); }
 .hero .tagline { font-family: 'JetBrains Mono', monospace; font-size: clamp(14px, 2.5vw, 20px); color: var(--green); margin-bottom: 8px; letter-spacing: 2px; }
 .hero .sub-tagline { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--gold); margin-bottom: 24px; letter-spacing: 1px; }
 .hero .intro { max-width: 600px; margin: 0 auto 32px; color: var(--light); font-size: 16px; line-height: 1.7; }
-.btn { display: inline-block; padding: 14px 28px; font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border: 1px solid; cursor: pointer; transition: all 0.2s; text-decoration: none !important; }
+.btn { display: inline-block; padding: 14px 28px; font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border: 1px solid; cursor: pointer; transition: all 0.2s ease-out; text-decoration: none !important; }
 .btn-primary { background: var(--green); color: var(--void); border-color: var(--green); }
 .btn-primary:hover { background: transparent; color: var(--green); }
 .btn-outline { background: transparent; color: var(--cyan); border-color: var(--cyan); }
@@ -65,7 +65,7 @@ section { padding: 80px 0; border-bottom: 1px solid var(--mid); }
 @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
 
 /* TYPING CURSOR */
-.typing-cursor::after { content: '█'; color: var(--green); animation: blink 0.8s step-end infinite; margin-left: 2px; }
+.typing-cursor::after { content: '\2588'; color: var(--green); animation: blink 0.8s step-end infinite; margin-left: 2px; }
 @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
 
 /* GLITCH HOVER */
@@ -133,14 +133,51 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(0,255,65,0.1); }
 .section-header h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 800; }
 .section-header .line { width: 60px; height: 2px; background: var(--green); margin-top: 12px; }
 
-/* ABOUT */
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
-.about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
-.stat { background: var(--void); border: 1px solid var(--mid); padding: 16px; text-align: center; }
-.stat .num { font-family: 'JetBrains Mono', monospace; font-size: 28px; font-weight: 700; color: var(--green); }
-.stat .lbl { font-size: 12px; color: var(--light); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
-.about-text p { color: #ccc; margin-bottom: 16px; line-height: 1.8; }
-.callsign { font-family: 'JetBrains Mono', monospace; color: var(--gold); font-size: 14px; margin-bottom: 16px; }
+/* PROOF OF WORK STATS */
+.pow-stats { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; margin: 32px 0; }
+.pow-stat { background: var(--void); border: 1px solid var(--mid); padding: 20px; text-align: center; transition: border-color 0.3s, box-shadow 0.3s; }
+.pow-stat:hover { border-color: var(--green); box-shadow: 0 0 12px rgba(0,255,65,0.15); }
+.pow-stat .num { font-family: 'JetBrains Mono', monospace; font-size: 32px; font-weight: 700; color: var(--green); }
+.pow-stat .lbl { font-size: 11px; color: var(--light); text-transform: uppercase; letter-spacing: 1px; margin-top: 6px; font-family: 'JetBrains Mono', monospace; }
+
+/* ARCHITECTURE DIAGRAM */
+.arch-diagram { position: relative; padding: 32px 16px; background: var(--void); border: 1px solid var(--mid); overflow-x: auto; }
+.arch-layer { border: 1px dashed rgba(0,255,65,0.2); padding: 16px; margin: 8px 0; position: relative; }
+.arch-layer-label { position: absolute; top: -10px; left: 16px; background: var(--void); padding: 0 8px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--green); letter-spacing: 2px; text-transform: uppercase; }
+.arch-nodes { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+.arch-node { display: inline-flex; align-items: center; gap: 8px; background: var(--dark); border: 1px solid var(--mid); padding: 10px 14px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--white); transition: border-color 0.3s, box-shadow 0.3s; }
+.arch-node:hover { border-color: var(--green); box-shadow: 0 0 12px rgba(0,255,65,0.15); }
+.arch-node .port { color: var(--light); font-size: 10px; }
+.arch-connector { width: 2px; height: 20px; background: var(--green); margin: 0 auto; opacity: 0.4; position: relative; overflow: visible; }
+.arch-connector::after {
+  content: ''; position: absolute; left: 50%; top: -4px;
+  width: 6px; height: 6px; background: var(--green); border-radius: 50%;
+  transform: translateX(-50%);
+  animation: dataFlow 1.8s ease-in-out infinite;
+  box-shadow: 0 0 6px rgba(0,255,65,0.6);
+}
+@keyframes dataFlow {
+  0% { top: -4px; opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { top: calc(100% - 2px); opacity: 0; }
+}
+
+/* THREAT COUNTER */
+.threat-strip {
+  display: flex; align-items: center; justify-content: center; gap: 16px;
+  padding: 14px 20px; margin-top: 20px;
+  border: 1px solid rgba(255,51,102,0.3); background: rgba(255,51,102,0.04);
+  font-family: 'JetBrains Mono', monospace;
+}
+.threat-strip .threat-dot {
+  width: 8px; height: 8px; background: var(--red); border-radius: 50%;
+  animation: pulse 1.5s infinite;
+  box-shadow: 0 0 8px rgba(255,51,102,0.5);
+}
+.threat-strip .threat-label { font-size: 11px; color: var(--red); letter-spacing: 2px; text-transform: uppercase; }
+.threat-strip .threat-num { font-size: 24px; font-weight: 700; color: var(--white); letter-spacing: 1px; }
+.threat-strip .threat-status { font-size: 11px; color: var(--light); letter-spacing: 1px; }
 
 /* CERTS */
 .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
@@ -148,21 +185,31 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(0,255,65,0.1); }
 .cert-card .hud:hover { border-color: var(--green); box-shadow: 0 0 12px rgba(0,255,65,0.15); }
 .cert-badge { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 1px; padding: 3px 8px; border: 1px solid; display: inline-block; margin-bottom: 12px; }
 .badge-cleared { color: var(--green); border-color: var(--green); }
+.badge-blue { color: #2196F3; border-color: #2196F3; }
+.cert-card-blue .hud { transition: border-color 0.3s, box-shadow 0.3s; }
+.cert-card-blue .hud:hover { border-color: #2196F3; box-shadow: 0 0 12px rgba(33,150,243,0.2); }
+.cert-card-blue .hud::before { border-color: #2196F3; }
+.cert-card-blue .hud::after { border-color: #2196F3; }
+.cert-card-blue .hud .bl { border-color: #2196F3; }
+.cert-card-blue .hud .br { border-color: #2196F3; }
 .cert-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
 .cert-card .cert-meta { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--light); margin-bottom: 4px; }
-.cert-card .cert-note { font-style: italic; color: var(--green); font-size: 13px; margin-top: 12px; line-height: 1.5; }
+.cert-card .cert-note { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--green); margin-top: 12px; opacity: 0.7; }
 .cert-card .doc-id { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #555; margin-top: 12px; }
 
 /* SERVICES/SOLUTIONS */
 .service-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
-.service-card .hud { height: 100%; display: flex; flex-direction: column; }
+.service-card .hud { height: 100%; display: flex; flex-direction: column; border-top: 3px solid transparent; transition: border-color 0.3s, box-shadow 0.3s; }
 .service-tier { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--cyan); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
 .service-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
 .service-desc { color: var(--light); font-size: 14px; margin-bottom: 16px; flex-grow: 1; }
 .service-list { list-style: none; margin-bottom: 20px; }
 .service-list li { font-size: 13px; color: #ccc; padding: 4px 0; padding-left: 16px; position: relative; }
-.service-list li::before { content: '›'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+.service-list li::before { content: '\203A'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
 .btn-sm { padding: 10px 20px; font-size: 12px; width: 100%; text-align: center; }
+/* Solutions hover tier colors */
+.service-card[data-tier="security"] .hud:hover { border-top-color: var(--red); }
+.service-card[data-tier="engineering"] .hud:hover { border-top-color: var(--gold); }
 
 /* PRODUCTS */
 .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
@@ -171,6 +218,19 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(0,255,65,0.1); }
 .product-card h3 { font-size: 16px; font-weight: 700; }
 .product-card p { font-size: 13px; color: var(--light); margin-bottom: 16px; }
 .free-tag { color: var(--green); }
+/* Product table scan line */
+.intel-table tr { position: relative; transition: background 0.3s; }
+.intel-table tr:hover { background: rgba(0,255,65,0.03); }
+.intel-table tr:hover::after {
+  content: ''; position: absolute; left: 0; right: 0; top: 0; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0,255,65,0.06) 50%, transparent);
+  animation: scanLine 1.2s ease-in-out;
+  pointer-events: none;
+}
+@keyframes scanLine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
 
 /* THE CLIMB */
 .progress-wrap { margin: 32px 0; }
@@ -183,15 +243,35 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(0,255,65,0.1); }
 .schedule-item { background: var(--void); border: 1px solid var(--mid); padding: 16px; }
 .schedule-item .day { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--cyan); letter-spacing: 2px; text-transform: uppercase; }
 .schedule-item .output { font-size: 14px; margin-top: 4px; color: #ccc; }
+/* Climb progress glow animation */
+.progress-block.filled.glow-animate {
+  animation: barGlow 2s ease-in-out infinite alternate;
+}
+@keyframes barGlow {
+  0% { box-shadow: 0 0 4px rgba(0,255,65,0.2); }
+  100% { box-shadow: 0 0 14px rgba(0,255,65,0.6); }
+}
 
 /* LIVE SHOWS */
 .shows-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
-.show-card .hud { border-top: 3px solid var(--green); min-height: 280px; display: flex; flex-direction: column; }
+.show-card .hud { border-top: 3px solid var(--green); min-height: 280px; display: flex; flex-direction: column; transition: box-shadow 0.3s; }
 .show-day { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
 .show-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
 .show-time { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--green); margin-bottom: 12px; }
 .show-card p { font-size: 14px; color: var(--light); line-height: 1.6; flex-grow: 1; }
 .show-platform { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--cyan); margin-top: 12px; }
+/* Live show pulse on air day */
+.show-card.on-air .hud {
+  box-shadow: 0 0 20px rgba(0,255,65,0.15);
+  animation: showPulse 3s ease-in-out infinite;
+}
+@keyframes showPulse {
+  0%,100% { box-shadow: 0 0 10px rgba(0,255,65,0.1); }
+  50% { box-shadow: 0 0 25px rgba(0,255,65,0.3); }
+}
+.show-card.on-air .show-day::before {
+  content: '\25CF '; color: var(--green); animation: pulse 1.5s infinite;
+}
 
 /* CONTACT */
 .contact-links { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 32px; }
@@ -203,6 +283,11 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(0,255,65,0.1); }
 footer { padding: 40px 0; text-align: center; }
 footer .logo { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--light); margin-bottom: 8px; }
 footer .copy { font-size: 12px; color: #555; }
+.footer-status {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  color: var(--light); margin-top: 12px; letter-spacing: 1px;
+}
+.footer-status .online { color: var(--green); }
 
 /* NAV */
 nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,10,10,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--mid); padding: 12px 0; }
@@ -214,52 +299,272 @@ nav .nav-links a { font-family: 'JetBrains Mono', monospace; font-size: 12px; co
 nav .nav-links a:hover { color: var(--green); text-decoration: none; }
 .menu-toggle { display: none; background: none; border: 1px solid var(--mid); color: var(--green); font-family: 'JetBrains Mono', monospace; font-size: 12px; padding: 6px 12px; cursor: pointer; }
 
+/* BOOT SEQUENCE */
+.boot-overlay {
+  position: fixed; inset: 0; z-index: 9999; background: var(--void);
+  display: flex; align-items: center; justify-content: center; flex-direction: column;
+  transition: opacity 0.6s ease;
+}
+.boot-overlay.fade-out { opacity: 0; pointer-events: none; }
+.boot-line {
+  font-family: 'JetBrains Mono', monospace; font-size: clamp(14px, 2.5vw, 18px);
+  color: var(--green); letter-spacing: 2px; opacity: 0; white-space: nowrap;
+}
+.boot-line.show { opacity: 1; }
+.boot-line .cursor { animation: blink 0.6s step-end infinite; }
+
+/* SCROLL PROGRESS BAR */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; height: 2px; width: 0;
+  background: var(--green); z-index: 200;
+  box-shadow: 0 0 10px rgba(0,255,65,0.6), 0 0 20px rgba(0,255,65,0.3);
+  transition: none;
+}
+
+/* CUSTOM CURSOR GLOW */
+.cursor-glow {
+  position: fixed; width: 300px; height: 300px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,255,65,0.04) 0%, transparent 70%);
+  pointer-events: none; z-index: 0; transform: translate(-50%, -50%);
+  transition: opacity 0.3s;
+}
+
+/* 3D TILT CARDS */
+.tilt-target { transition: transform 0.15s ease-out; transform-style: preserve-3d; }
+
+/* TERMINAL EASTER EGG */
+.terminal-overlay {
+  position: fixed; inset: 0; z-index: 10000; background: rgba(0,0,0,0.92);
+  display: none; align-items: center; justify-content: center;
+  backdrop-filter: blur(4px);
+}
+.terminal-overlay.open { display: flex; }
+.terminal-window {
+  width: 90%; max-width: 640px; max-height: 70vh; background: var(--void);
+  border: 1px solid var(--green); padding: 0; font-family: 'JetBrains Mono', monospace;
+  box-shadow: 0 0 40px rgba(0,255,65,0.15), inset 0 0 60px rgba(0,255,65,0.02);
+  display: flex; flex-direction: column;
+}
+.terminal-titlebar {
+  background: rgba(0,255,65,0.08); padding: 8px 14px; font-size: 11px;
+  color: var(--green); letter-spacing: 2px; border-bottom: 1px solid var(--green);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.terminal-close { color: var(--red); cursor: pointer; font-size: 14px; }
+.terminal-close:hover { text-shadow: 0 0 8px var(--red); }
+.terminal-body {
+  padding: 16px; overflow-y: auto; flex: 1; max-height: 50vh;
+  scrollbar-width: thin; scrollbar-color: var(--green) var(--void);
+}
+.terminal-body::-webkit-scrollbar { width: 4px; }
+.terminal-body::-webkit-scrollbar-track { background: var(--void); }
+.terminal-body::-webkit-scrollbar-thumb { background: var(--green); }
+.terminal-line { font-size: 13px; color: var(--green); margin-bottom: 4px; line-height: 1.6; white-space: pre-wrap; word-break: break-word; }
+.terminal-line.output { color: var(--light); }
+.terminal-line.error { color: var(--red); }
+.terminal-line.gold { color: var(--gold); }
+.terminal-input-row {
+  display: flex; align-items: center; padding: 10px 16px;
+  border-top: 1px solid rgba(0,255,65,0.15);
+}
+.terminal-prompt { color: var(--green); font-size: 13px; white-space: nowrap; margin-right: 8px; }
+.terminal-input {
+  background: none; border: none; outline: none; color: var(--white);
+  font-family: 'JetBrains Mono', monospace; font-size: 13px; flex: 1; caret-color: var(--green);
+}
+
+/* KEYBOARD OVERLAY */
+.kb-overlay { position: fixed; inset: 0; z-index: 10000; background: rgba(0,0,0,0.85); display: none; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
+.kb-overlay.open { display: flex; }
+.kb-panel { background: var(--void); border: 1px solid var(--green); padding: 28px; max-width: 380px; width: 90%; box-shadow: 0 0 30px rgba(0,255,65,0.1); }
+.kb-title { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--green); letter-spacing: 2px; margin-bottom: 20px; }
+.kb-row { display: flex; justify-content: space-between; align-items: center; padding: 5px 0; }
+.kb-key { background: var(--dark); border: 1px solid var(--mid); padding: 2px 8px; color: var(--green); font-family: 'JetBrains Mono', monospace; font-size: 11px; min-width: 28px; text-align: center; }
+.kb-desc { color: var(--light); font-family: 'JetBrains Mono', monospace; font-size: 12px; }
+
+/* KONAMI OVERLAY */
+.konami-overlay { position: fixed; inset: 0; z-index: 10000; background: rgba(0,0,0,0.95); display: none; align-items: center; justify-content: center; backdrop-filter: blur(8px); }
+.konami-overlay.open { display: flex; }
+.konami-panel { background: var(--void); border: 1px solid var(--red); padding: 32px; max-width: 520px; width: 90%; box-shadow: 0 0 40px rgba(255,51,102,0.15); }
+.konami-panel .classified { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--red); letter-spacing: 3px; margin-bottom: 16px; }
+.konami-panel h3 { font-size: 22px; font-weight: 800; margin-bottom: 16px; }
+.konami-panel p { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--light); line-height: 1.8; margin-bottom: 12px; }
+.konami-panel .sig { color: var(--green); font-family: 'JetBrains Mono', monospace; font-size: 12px; margin-top: 20px; }
+
+/* ARCH TOOLTIP */
+.arch-tooltip { position: fixed; background: var(--void); border: 1px solid var(--green); padding: 10px 14px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--light); max-width: 280px; z-index: 50; box-shadow: 0 0 12px rgba(0,255,65,0.15); pointer-events: none; opacity: 0; transition: opacity 0.2s; line-height: 1.6; }
+.arch-tooltip.visible { opacity: 1; }
+.arch-node[data-info] { cursor: pointer; }
+
+/* PARTICLE CANVAS */
+#particle-bg {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  z-index: -1; pointer-events: none; opacity: 0.4;
+}
+
+/* NOISE OVERLAY */
+.noise-overlay {
+  position: fixed; inset: 0; z-index: 9998; pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat; background-size: 256px;
+}
+
+/* TYPEWRITER HEADERS */
+.section-header h2 .tw-cursor::after { content: '\2588'; color: var(--green); animation: blink 0.6s step-end infinite; margin-left: 2px; }
+
+/* MAGNETIC BUTTONS */
+.btn { transition: all 0.2s ease-out; }
+
+/* VISITOR DESIGNATION */
+.visitor-id { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(51,51,51,0.8); margin-top: 10px; letter-spacing: 2px; }
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .about-grid { grid-template-columns: 1fr; }
   .nav-links { display: none !important; }
   .nav-links.open { display: flex !important; position: absolute; top: 100%; left: 0; right: 0; background: var(--void); flex-direction: column; padding: 16px 20px; border-bottom: 1px solid var(--mid); gap: 12px; }
   .menu-toggle { display: block; }
   section { padding: 60px 0; }
+  .pow-stats { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
 }
 @media (max-width: 480px) {
   .cert-grid, .service-grid, .shows-grid, .product-grid, .climb-stats { grid-template-columns: 1fr; }
   .hero-buttons { flex-direction: column; align-items: center; }
+  .pow-stats { grid-template-columns: 1fr 1fr; }
+  .arch-nodes { gap: 8px; }
+  .arch-node { font-size: 11px; padding: 8px 10px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition-duration: 0.01ms !important; }
+  .boot-overlay { display: none !important; }
+}
+
+/* PRINT STYLESHEET */
+@media print {
+  body { background: #fff !important; color: #000 !important; }
+  nav, .boot-overlay, .noise-overlay, .cursor-glow, .scroll-progress,
+  #particle-bg, #matrix-bg, .hero::after, .hero::before,
+  .terminal-overlay, .kb-overlay, .konami-overlay, .arch-tooltip,
+  .threat-strip, .arch-connector::after, .footer-status,
+  .menu-toggle, .visitor-id, .hero-buttons .btn-outline { display: none !important; }
+  .hero { min-height: auto !important; padding: 40px 0 !important; }
+  section { border-bottom: 1px solid #ddd !important; padding: 30px 0 !important; page-break-inside: avoid; }
+  a { color: #000 !important; }
+  .hud { background: #fff !important; border-color: #ddd !important; }
+  .hud::before, .hud::after, .hud .bl, .hud .br { display: none !important; }
+  .reveal, .reveal-left, .stagger-card { opacity: 1 !important; transform: none !important; }
+  .section-header .label, .cert-badge, .cert-note { color: #333 !important; }
+  .pow-stat .num { color: #000 !important; }
+  .pow-stat { border-color: #ddd !important; background: #fff !important; }
+  .btn-primary { background: #fff !important; color: #000 !important; border-color: #000 !important; }
+  .contact-link { background: #fff !important; border-color: #ddd !important; color: #000 !important; }
+  .arch-node { background: #fff !important; border-color: #ddd !important; color: #000 !important; }
+  footer { display: none !important; }
 }
 </style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Emmanuel Tigoue",
-  "jobTitle": "Security Engineer",
-  "description": "Security Engineer with CASP+ (DoD 8140), AWS Security Specialty, SSCP, and CCNA certifications. Cloud security, Zero Trust architecture, and security automation.",
-  "url": "https://etcodin.github.io/coredirective-portfolio/",
+  "@type": "Organization",
+  "name": "CoreDirective",
+  "description": "Tactical cybersecurity operations. Certification frameworks, security automation, and threat intelligence.",
+  "url": "https://et-sec.github.io/coredirective-portfolio/",
+  "founder": {
+    "@type": "Person",
+    "name": "Emmanuel Tigoue",
+    "jobTitle": "Security Engineer"
+  },
   "sameAs": [
     "https://www.linkedin.com/in/emmanuel-tigoue-672378307",
-    "https://github.com/ETcodin",
+    "https://github.com/et-sec/cyber-squire1",
     "https://www.youtube.com/@coredirective.official",
-    "https://www.tiktok.com/@coredirective.official"
+    "https://www.tiktok.com/@coredirective.official",
+    "https://coredirective1.gumroad.com"
   ]
 }
 </script>
 </head>
 <body>
 
+<!-- SCROLL PROGRESS -->
+<div class="scroll-progress" id="scroll-progress"></div>
+
+<!-- CURSOR GLOW -->
+<div class="cursor-glow" id="cursor-glow"></div>
+
+<!-- PARTICLE NETWORK -->
+<canvas id="particle-bg"></canvas>
+
+<!-- NOISE TEXTURE -->
+<div class="noise-overlay"></div>
+
+<!-- TERMINAL EASTER EGG -->
+<div class="terminal-overlay" id="terminal-overlay">
+  <div class="terminal-window">
+    <div class="terminal-titlebar">
+      <span>COREDIRECTIVE TERMINAL // CLEARANCE: VISITOR</span>
+      <span class="terminal-close" id="terminal-close">&#10005;</span>
+    </div>
+    <div class="terminal-body" id="terminal-body">
+      <div class="terminal-line gold">CoreDirective Security Terminal v2.1</div>
+      <div class="terminal-line output">Type "help" for available commands.</div>
+      <div class="terminal-line output">&nbsp;</div>
+    </div>
+    <div class="terminal-input-row">
+      <span class="terminal-prompt">visitor@coredirective:~$</span>
+      <input type="text" class="terminal-input" id="terminal-input" autocomplete="off" spellcheck="false">
+    </div>
+  </div>
+</div>
+
+<!-- KEYBOARD SHORTCUTS OVERLAY -->
+<div class="kb-overlay" id="kb-overlay">
+  <div class="kb-panel">
+    <div class="kb-title">KEYBOARD SHORTCUTS</div>
+    <div class="kb-row"><span class="kb-key">J</span><span class="kb-desc">Next section</span></div>
+    <div class="kb-row"><span class="kb-key">K</span><span class="kb-desc">Previous section</span></div>
+    <div class="kb-row"><span class="kb-key">T</span><span class="kb-desc">Open terminal</span></div>
+    <div class="kb-row"><span class="kb-key">R</span><span class="kb-desc">Download resume</span></div>
+    <div class="kb-row"><span class="kb-key">?</span><span class="kb-desc">Toggle this panel</span></div>
+    <div class="kb-row"><span class="kb-key">ESC</span><span class="kb-desc">Close overlays</span></div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--mid);margin-top:16px;letter-spacing:1px;">Press any key to close</div>
+  </div>
+</div>
+
+<!-- KONAMI CODE OVERLAY -->
+<div class="konami-overlay" id="konami-overlay">
+  <div class="konami-panel">
+    <div class="classified">&#9608; COREDIRECTIVE // CLASSIFICATION: TOP SECRET</div>
+    <h3>Operator Dossier</h3>
+    <p>Codename: CORE_DIRECTIVE<br>Origin: Cameroon &rarr; Atlanta, GA<br>Clearance: IAT/IAM Level III</p>
+    <p>Mission: Engineer the next generation of autonomous security infrastructure. Provide tactical frameworks and intelligence for cybersecurity careers. No gatekeepers. No excuses.</p>
+    <p>Status: 6 certifications active. Production platform running 24/7. Content operation broadcasting weekly. Unreasonable determination confirmed.</p>
+    <p style="color:var(--gold);">// If you found this, you're probably an engineer.<br>// Or you read the source code. Either way, we should talk.</p>
+    <div class="sig">&#9673; support@tigouetheory.com<br>&#9673; coredirective.official</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--mid);margin-top:20px;">Press ESC or click to close</div>
+  </div>
+</div>
+
+<!-- ARCH TOOLTIP -->
+<div class="arch-tooltip" id="arch-tooltip"></div>
+
+<!-- BOOT SEQUENCE OVERLAY -->
+<div class="boot-overlay" id="boot-overlay">
+  <div class="boot-line" id="boot-line-1">ESTABLISHING SECURE CONNECTION<span class="cursor">&#9608;</span></div>
+  <div class="boot-line" id="boot-line-2" style="margin-top:12px;color:var(--gold);">COREDIRECTIVE // ACCESS GRANTED.</div>
+</div>
+
 <nav>
   <div class="nav-inner">
-    <div class="brand"><span class="g">◉</span> COREDIRECTIVE</div>
+    <div class="brand"><span class="g">&#9673;</span> COREDIRECTIVE</div>
     <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">MENU</button>
     <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#certs">Certs</a>
-      <a href="#solutions">Solutions</a>
-      <a href="#products">Intelligence</a>
-      <a href="#climb">The Climb</a>
+      <a href="#products">Frameworks</a>
       <a href="#shows">Live</a>
+      <a href="#services">Services</a>
+      <a href="#engine">Engine</a>
+      <a href="#climb">The Climb</a>
+      <a href="#certs">Certs</a>
       <a href="#contact">Contact</a>
     </div>
   </div>
@@ -269,205 +574,34 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
 <section class="hero">
   <canvas id="matrix-bg"></canvas>
   <div class="container" style="position:relative;z-index:1;">
-    <div class="hero-badge">[ Public ] // Operations Hub</div>
-    <h1><span class="icon">◉</span> <span class="glitch-hover">EMMANUEL TIGOUE</span></h1>
+    <div class="hero-badge" id="hero-badge">[ Public ] // CoreDirective Operations Hub</div>
+    <h1><span class="icon">&#9673;</span> <span class="glitch-hover">COREDIRECTIVE</span></h1>
     <div class="tagline" id="typed-tagline"></div>
-    <div class="sub-tagline">DoD 8140 Advanced Tier Compliant</div>
-    <p class="intro">I engineer defensive systems and automate workflow, security operations, and infrastructure to reduce organizational risk. Builder of Cyber-Squire OS.</p>
+    <div class="sub-tagline">Tactical cybersecurity operations. No gatekeepers. No excuses.</div>
+    <p class="intro">Structured frameworks to pass certifications. Security automation and AI builds for businesses. Weekly threat intelligence briefings. Everything you need to level up &mdash; built by operators, for operators.</p>
     <div class="hero-buttons">
-      <a href="#contact" class="btn btn-primary">Get in Touch</a>
-      <a href="resume.pdf" download class="btn btn-outline">Download Resume</a>
+      <a href="#products" class="btn btn-primary">View Frameworks</a>
+      <a href="#services" class="btn btn-outline">Book Consultation</a>
     </div>
-    <div class="status-line"><span class="pulse">◉</span> STATUS: SYSTEMS ONLINE // COREDIRECTIVE ACTIVE</div>
+    <div class="status-line"><span class="pulse">&#9673;</span> STATUS: SYSTEMS ONLINE // COREDIRECTIVE ACTIVE</div>
+    <div class="visitor-id" id="visitor-id"></div>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="container">
-    <div class="section-header reveal-left">
-      <div class="label">// About CoreDirective</div>
-      <h2>About CoreDirective</h2>
-      <div class="line"></div>
-    </div>
-    <div class="about-grid">
-      <div>
-        <div class="callsign">SECURITY ENGINEER: EMMANUEL TIGOUE // ATLANTA</div>
-        <div class="about-text">
-          <p>My technical foundation in cybersecurity operations and business economics allows me to align advanced security architecture with corporate financial objectives. I build automated defensive systems, conduct infrastructure audits, and deploy AI-driven security pipelines.</p>
-          <p>CoreDirective functions as an intelligence hub. I publish tactical playbooks, infrastructure builds, and firsthand threat intelligence because proof outranks promises.</p>
-          <p>The Mission: Provide the technical frameworks and intelligence required to secure high-level careers in cybersecurity. No gatekeepers. No excuses.</p>
-        </div>
-      </div>
-      <div>
-        <div class="about-stats">
-          <div class="stat"><div class="num">18+</div><div class="lbl">Automated Security Pipelines</div></div>
-          <div class="stat"><div class="num">✓</div><div class="lbl">DoD 8140 Compliant</div></div>
-          <div class="stat"><div class="num">✓</div><div class="lbl">NIST 800-53 Ready</div></div>
-          <div class="stat"><div class="num">3+</div><div class="lbl">Production Infrastructure Builds</div></div>
-        </div>
-        <div class="hud hud-animate" style="margin-top:24px;">
-          <span class="bl"></span><span class="br"></span>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--light);margin-bottom:8px;">MISSION STATUS [ OPERATIONAL ]</div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--cyan);line-height:1.7;">
-            Documenting and deploying the next generation of security infrastructure. Bridging technical certification mastery with real-world infrastructure builds.<br><br>OPERATIONAL STATUS <span class="radar-ping" style="color:var(--green);padding-left:32px;margin-left:16px;">ACTIVE</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CERTIFICATIONS -->
-<section id="certs">
-  <div class="container">
-    <div class="section-header reveal-left">
-      <div class="label">// Clearance Stack</div>
-      <h2>Certifications</h2>
-      <div class="line"></div>
-    </div>
-    <div class="cert-grid">
-      <div class="cert-card stagger-card"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <span class="cert-badge badge-cleared">◉ CLEARED</span>
-        <h3>CompTIA CASP+</h3>
-        <div class="cert-meta">Advanced Security Practitioner</div>
-        <div class="cert-meta">Clearance Level: Elite</div>
-        <div class="cert-note">"Advanced tier. Architecture-level security validation."</div>
-        <div class="doc-id">CD-CERT-001</div>
-      </div></div>
-
-      <div class="cert-card stagger-card"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <span class="cert-badge badge-cleared">◉ CLEARED</span>
-        <h3>Cisco CCNA</h3>
-        <div class="cert-meta">Network Associate</div>
-        <div class="cert-meta">Clearance Level: Advanced</div>
-        <div class="cert-note">"Networking is the backbone. You can't secure what you don't understand."</div>
-        <div class="doc-id">CD-CERT-002</div>
-      </div></div>
-
-      <div class="cert-card stagger-card"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <span class="cert-badge badge-cleared">◉ CLEARED</span>
-        <h3>ISC2 SSCP</h3>
-        <div class="cert-meta">Systems Security Certified Practitioner</div>
-        <div class="cert-meta">Clearance Level: Advanced</div>
-        <div class="cert-note">"ISC2 validated. Operational security at the practitioner level."</div>
-        <div class="doc-id">CD-CERT-003</div>
-      </div></div>
-
-      <div class="cert-card stagger-card"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <span class="cert-badge badge-cleared">◉ CLEARED</span>
-        <h3>CompTIA Security+</h3>
-        <div class="cert-meta">Security Fundamentals</div>
-        <div class="cert-meta">Clearance Level: Intermediate</div>
-        <div class="cert-note">"The baseline. DoD 8140 foundation."</div>
-        <div class="doc-id">CD-CERT-004</div>
-      </div></div>
-
-      <div class="cert-card stagger-card"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <span class="cert-badge badge-cleared">◉ CLEARED</span>
-        <h3>CompTIA Network+</h3>
-        <div class="cert-meta">Networking Fundamentals</div>
-        <div class="cert-meta">Clearance Level: Foundation</div>
-        <div class="cert-note">"Infrastructure starts here."</div>
-        <div class="doc-id">CD-CERT-005</div>
-      </div></div>
-
-      <div class="cert-card stagger-card"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <span class="cert-badge badge-cleared">◉ CLEARED</span>
-        <h3>ISC2 CC</h3>
-        <div class="cert-meta">Certified in Cybersecurity</div>
-        <div class="cert-meta">Clearance Level: Foundation</div>
-        <div class="cert-note">"ISC2 entry point. Real credential, zero cost."</div>
-        <div class="doc-id">CD-CERT-006</div>
-      </div></div>
-
-      <div class="cert-card stagger-card"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <span class="cert-badge badge-cleared">◉ CLEARED</span>
-        <h3>AWS Security Specialty</h3>
-        <div class="cert-meta">Cloud Security</div>
-        <div class="cert-meta">Clearance Level: Advanced</div>
-        <div class="cert-note">"Cloud is the battlefield now."</div>
-        <div class="doc-id">CD-CERT-007</div>
-      </div></div>
-    </div>
-  </div>
-</section>
-
-<!-- SOLUTIONS -->
-<section id="solutions">
-  <div class="container">
-    <div class="section-header reveal-left">
-      <div class="label">// Solutions</div>
-      <h2>Solutions</h2>
-      <div class="line"></div>
-    </div>
-    <div class="service-grid">
-      <div class="service-card stagger-card"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <div class="service-tier">Security</div>
-        <h3>Infrastructure Audit</h3>
-        <div class="service-desc">Identifying systemic risk, compliance gaps, and attack surface exposure. Full assessment aligned to DoD 8140 and NIST frameworks.</div>
-        <ul class="service-list">
-          <li>Full security assessment</li>
-          <li>Network, cloud, and identity review</li>
-          <li>Written report with remediation priorities</li>
-          <li>Executive walkthrough</li>
-        </ul>
-        <a href="#contact" class="btn btn-outline btn-sm">Request Quote</a>
-      </div></div>
-
-      <div class="service-card stagger-card"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <div class="service-tier">Engineering</div>
-        <h3>Automation Architecture</h3>
-        <div class="service-desc">Engineering autonomous security pipelines that eliminate manual overhead and reduce response time.</div>
-        <ul class="service-list">
-          <li>Custom n8n/AI workflow builds</li>
-          <li>Security automation design</li>
-          <li>Monitoring and alerting systems</li>
-          <li>Full documentation + training</li>
-        </ul>
-        <a href="#contact" class="btn btn-outline btn-sm">Request Quote</a>
-      </div></div>
-
-      <div class="service-card stagger-card"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <div class="service-tier">Consulting</div>
-        <h3>Strategic Advisory</h3>
-        <div class="service-desc">Mapping technical roadmaps for security operations maturity. Cert planning, career architecture, compliance strategy.</div>
-        <ul class="service-list">
-          <li>1-on-1 strategy session</li>
-          <li>Cert roadmap + study systems included</li>
-          <li>Compliance gap analysis</li>
-          <li>Follow-up support</li>
-        </ul>
-        <a href="#contact" class="btn btn-primary btn-sm">Book a Call</a>
-      </div></div>
-
-      <div class="service-card stagger-card"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <div class="service-tier">Intelligence</div>
-        <h3>Technical Documentation</h3>
-        <div class="service-desc">Production-grade study systems, operational templates, and security frameworks. Built from real certification campaigns.</div>
-        <ul class="service-list">
-          <li>Notion-based study systems</li>
-          <li>Structured exam prep frameworks</li>
-          <li>Automation templates</li>
-          <li>Continuously updated</li>
-        </ul>
-        <a href="#products" class="btn btn-outline btn-sm">View Products</a>
-      </div></div>
-    </div>
-  </div>
-</section>
-
-<!-- PRODUCTS -->
+<!-- PRODUCTS / CERTIFICATION FRAMEWORKS -->
 <section id="products">
   <div class="container">
     <div class="section-header reveal-left">
       <div class="label">// Quartermaster</div>
-      <h2>Intelligence Assets</h2>
+      <h2>Certification Frameworks</h2>
       <div class="line"></div>
     </div>
+    <p class="reveal" style="color:#ccc;max-width:720px;margin-bottom:32px;line-height:1.8;">
+      Structured Notion systems built from real certification campaigns. Not study content &mdash; the tactical framework to organize, track, and pass. The professors teach. We give you the system.
+    </p>
     <div class="hud" style="overflow-x:auto;">
       <span class="bl"></span><span class="br"></span>
-      <table style="width:100%;border-collapse:collapse;font-family:'JetBrains Mono',monospace;font-size:13px;">
+      <table class="intel-table" style="width:100%;border-collapse:collapse;font-family:'JetBrains Mono',monospace;font-size:13px;">
         <thead>
           <tr style="border-bottom:1px solid var(--mid);text-align:left;">
             <th style="padding:12px 8px;color:var(--light);font-size:11px;letter-spacing:2px;text-transform:uppercase;">Asset Code</th>
@@ -501,6 +635,168 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
   </div>
 </section>
 
+<!-- LIVE SHOWS -->
+<section id="shows">
+  <div class="container">
+    <div class="section-header reveal-left">
+      <div class="label">// Live Operations</div>
+      <h2>Weekly Shows</h2>
+      <div class="line"></div>
+    </div>
+    <div class="shows-grid">
+      <div class="show-card stagger-card" data-day="2"><div class="hud" style="border-top-color:var(--red);"><span class="bl"></span><span class="br"></span>
+        <div class="show-day">Every Tuesday</div>
+        <h3>Threat Brief LIVE</h3>
+        <div class="show-time">8:00 PM ET, 60 min</div>
+        <p>Weekly threat intelligence analysis. Real-time breakdown of the latest vulnerabilities, exploits, and compliance changes affecting security operations.</p>
+        <div class="show-platform">MULTISTREAM: TikTok + YouTube</div>
+      </div></div>
+
+      <div class="show-card stagger-card" data-day="4"><div class="hud" style="border-top-color:var(--gold);"><span class="bl"></span><span class="br"></span>
+        <div class="show-day">Every Thursday</div>
+        <h3>The Build LIVE</h3>
+        <div class="show-time">8:00 PM ET, 75 min</div>
+        <p>Live engineering sessions. Building security automation pipelines, n8n workflows, and infrastructure tools in real time.</p>
+        <div class="show-platform">MULTISTREAM: TikTok + YouTube</div>
+      </div></div>
+
+      <div class="show-card stagger-card" data-day="6"><div class="hud" style="border-top-color:var(--cyan);"><span class="bl"></span><span class="br"></span>
+        <div class="show-day">Every Saturday</div>
+        <h3>Open Channel</h3>
+        <div class="show-time">12:00 PM ET, 90 min</div>
+        <p>Open Q&A. Career strategy, cert advice, technical Q&A, industry talk. The most accessible briefing of the week.</p>
+        <div class="show-platform">MULTISTREAM: TikTok + YouTube</div>
+      </div></div>
+    </div>
+
+    <div style="margin-top:48px;">
+      <h3 style="font-size:20px;font-weight:700;margin-bottom:16px;">Content Schedule</h3>
+      <div class="schedule-grid">
+        <div class="schedule-item"><div class="day">Mon-Sat</div><div class="output">TikTok Tactical Breakdowns Daily</div></div>
+        <div class="schedule-item"><div class="day">Tuesday</div><div class="output">Threat Brief LIVE, 8 PM ET</div></div>
+        <div class="schedule-item"><div class="day">Thursday</div><div class="output">The Build LIVE, 8 PM ET</div></div>
+        <div class="schedule-item"><div class="day">Saturday</div><div class="output">Open Channel LIVE, 12 PM ET</div></div>
+        <div class="schedule-item"><div class="day">Weekly</div><div class="output">3 YouTube Long-Form Briefings</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-header reveal-left">
+      <div class="label">// Operations</div>
+      <h2>Services</h2>
+      <div class="line"></div>
+    </div>
+    <div class="service-grid">
+      <div class="service-card stagger-card" data-tier="security"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <div class="service-tier">Assessment</div>
+        <h3>Security Audits</h3>
+        <div class="service-desc">Full infrastructure security assessment aligned to NIST and DoD 8140 frameworks. Network, cloud, and identity review with written remediation report.</div>
+        <ul class="service-list">
+          <li>Full security assessment</li>
+          <li>Compliance gap analysis</li>
+          <li>Written report with priorities</li>
+          <li>Executive walkthrough</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline btn-sm">Request Quote</a>
+      </div></div>
+
+      <div class="service-card stagger-card" data-tier="engineering"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <div class="service-tier">Engineering</div>
+        <h3>AI &amp; Automation Operations</h3>
+        <div class="service-desc">Custom security automation pipelines built for your business. Containerized AI workflows, monitoring systems, and ongoing maintenance.</div>
+        <ul class="service-list">
+          <li>Custom n8n/AI workflow builds</li>
+          <li>Container orchestration + hardening</li>
+          <li>Monitoring and alerting systems</li>
+          <li>Monthly maintenance retainer</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline btn-sm">Request Quote</a>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- THE ENGINE -->
+<section id="engine">
+  <div class="container">
+    <div class="section-header reveal-left">
+      <div class="label">// The Engine</div>
+      <h2>What We Build</h2>
+      <div class="line"></div>
+    </div>
+    <p class="reveal" style="color:#ccc;max-width:720px;margin-bottom:32px;line-height:1.8;">
+      CoreDirective Automation Engine &mdash; production security infrastructure on AWS.
+      This is the same technology stack we deploy for clients.
+      Every metric below is verifiable in the <a href="https://github.com/et-sec/cyber-squire1" target="_blank" rel="noopener noreferrer">public repository</a>.
+    </p>
+
+    <!-- STATS GRID -->
+    <div class="pow-stats">
+      <div class="pow-stat stagger-card"><div class="num">17</div><div class="lbl">Integrated Services</div></div>
+      <div class="pow-stat stagger-card"><div class="num">89%</div><div class="lbl">NIST/CIS Coverage</div></div>
+      <div class="pow-stat stagger-card"><div class="num">85%</div><div class="lbl">Attack Surface Reduction</div></div>
+      <div class="pow-stat stagger-card"><div class="num">$0</div><div class="lbl">AI Inference Cost</div></div>
+      <div class="pow-stat stagger-card"><div class="num">99.2%</div><div class="lbl">Workflow Success Rate</div></div>
+      <div class="pow-stat stagger-card"><div class="num">$135</div><div class="lbl">Monthly Infrastructure</div></div>
+    </div>
+
+    <!-- THREAT COUNTER -->
+    <div class="threat-strip reveal">
+      <span class="threat-dot"></span>
+      <span class="threat-label">Threats Analyzed</span>
+      <span class="threat-num" id="threat-counter">10,847</span>
+      <span class="threat-status">// MONITORING ACTIVE</span>
+    </div>
+
+    <!-- ARCHITECTURE DIAGRAM -->
+    <div class="hud hud-animate reveal" style="margin-top:40px;">
+      <span class="bl"></span><span class="br"></span>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--green);letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;">
+        System Architecture // CoreDirective Automation Engine
+      </div>
+      <div class="arch-diagram">
+        <div class="arch-layer">
+          <div class="arch-layer-label">Layer 1 // Perimeter</div>
+          <div class="arch-nodes">
+            <div class="arch-node" data-info="Zero-trust access proxy. No ports exposed to public internet. All traffic routed through encrypted tunnel.">&#9673; Cloudflare Tunnel <span class="port">TLS 1.3</span></div>
+            <div class="arch-node" data-info="Default-deny ingress. Only Cloudflare tunnel IPs whitelisted. Egress restricted to required ports only.">&#9673; AWS Security Groups <span class="port">DEFAULT DENY</span></div>
+            <div class="arch-node" data-info="Mandatory access control. Each container in container_t domain with minimum required permissions.">&#9673; SELinux Enforcing <span class="port">container_t</span></div>
+          </div>
+        </div>
+        <div class="arch-connector"></div>
+        <div class="arch-layer">
+          <div class="arch-layer-label">Layer 2 // Zero Trust</div>
+          <div class="arch-nodes">
+            <div class="arch-node" data-info="OTP-authenticated access for management. No static credentials. Session-based authorization enforced.">&#9673; Identity-Aware Proxy <span class="port">OTP AUTH</span></div>
+            <div class="arch-node" data-info="Custom bridge network. Inter-container traffic restricted. No host network access permitted.">&#9673; Docker Bridge Isolation <span class="port">172.28.0.0/16</span></div>
+            <div class="arch-node" data-info="Automated quarterly rotation of all API keys, database credentials, and tunnel tokens.">&#9673; Credential Rotation <span class="port">QUARTERLY</span></div>
+          </div>
+        </div>
+        <div class="arch-connector"></div>
+        <div class="arch-layer">
+          <div class="arch-layer-label">Layer 3 // Services</div>
+          <div class="arch-nodes">
+            <div class="arch-node" data-info="Primary data store. Workflow state, automation logs, credential vault. Encrypted at rest via gp3.">&#9673; PostgreSQL 16 <span class="port">:5400</span></div>
+            <div class="arch-node" data-info="Security orchestration hub. 17 integrated services. Webhook-driven. 99.2% success rate across 700+ executions.">&#9673; n8n SOAR <span class="port">:5600</span></div>
+            <div class="arch-node" data-info="Self-hosted LLM inference. Qwen 2.5 7B (4-bit quantized). Zero external API costs. Fully local processing.">&#9673; Ollama / Qwen <span class="port">:11400</span></div>
+            <div class="arch-node" data-info="On-premise voice transcription. Faster-Whisper model. Privacy-first: no audio leaves the server.">&#9673; Whisper STT <span class="port">:8200</span></div>
+            <div class="arch-node" data-info="Claude AI gateway. Proxied through authenticated local endpoint. Rate-limited. API key rotation enforced.">&#9673; OpenClaw AI <span class="port">:18700</span></div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:16px;">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--light);">
+            AWS EC2 t3.xlarge &bull; 16GB RAM &bull; 100GB gp3 &bull; Terraform IaC
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- THE CLIMB -->
 <section id="climb">
   <div class="container">
@@ -513,13 +809,13 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
       <div class="hud hud-animate reveal" style="text-align:center;">
         <span class="bl"></span><span class="br"></span>
         <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--light);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">Downloads</div>
-        <div class="stat"><div class="num" style="font-size:32px;">36</div></div>
+        <div class="stat"><div class="num" style="font-size:32px;">50</div></div>
         <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--green);margin-top:4px;">OPERATIVES ACTIVE</div>
       </div>
       <div class="hud hud-animate reveal" style="text-align:center;">
         <span class="bl"></span><span class="br"></span>
         <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--light);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">Hours Automated</div>
-        <div class="stat"><div class="num" style="font-size:32px;">280</div></div>
+        <div class="stat"><div class="num" style="font-size:32px;">400</div></div>
         <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cyan);margin-top:4px;">TARGET: 10,000</div>
         <div class="progress-bar" id="hoursBar" style="margin-top:12px;"></div>
       </div>
@@ -527,10 +823,10 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
         <span class="bl"></span><span class="br"></span>
         <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--light);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">Daily Transmission</div>
         <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--white);text-align:left;line-height:1.8;margin-top:8px;">
-          <span style="color:var(--green);">// 2026-02-16</span><br>
-          Deployed Architect Framework.<br>
-          Stripped legacy content.<br>
-          5 outreach nodes initiated.<br>
+          <span style="color:var(--green);">// 2026-02-18</span><br>
+          Brand site upgraded to v3.<br>
+          Strategic restructure deployed.<br>
+          Revenue sections promoted.<br>
           <span style="color:var(--gold);">STATUS: [ OPERATIONAL ]</span>
         </div>
       </div>
@@ -549,44 +845,85 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
   </div>
 </section>
 
-<!-- LIVE SHOWS -->
-<section id="shows">
+<!-- CERTIFICATIONS -->
+<section id="certs">
   <div class="container">
     <div class="section-header reveal-left">
-      <div class="label">// Live Operations</div>
-      <h2>Weekly Shows</h2>
+      <div class="label">// Clearance Stack</div>
+      <h2>Certifications</h2>
       <div class="line"></div>
     </div>
-    <div class="shows-grid">
-      <div class="show-card stagger-card"><div class="hud" style="border-top-color:var(--red);"><span class="bl"></span><span class="br"></span>
-        <div class="show-day">Every Tuesday</div>
-        <h3>Threat Brief LIVE</h3>
-        <div class="show-time">8:00 PM ET, 60 min</div>
-        <p>Weekly threat intelligence analysis. Real-time breakdown of the latest vulnerabilities, exploits, and compliance changes affecting security operations.</p>
-        <div class="show-platform">MULTISTREAM: TikTok + YouTube</div>
+    <div class="cert-grid">
+
+      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/15cf6f50-9a78-4405-9cde-3998c8117f84/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <span class="cert-badge badge-cleared">&#9673; VERIFIED</span>
+        <h3>CompTIA CASP+ (SecurityX)</h3>
+        <div class="cert-meta">Advanced Security Practitioner</div>
+        <div class="cert-meta">DoD 8140 IAT/IAM Level III</div>
+        <div class="cert-note">Expires Jun 2028 &bull; Click to verify on Credly</div>
+        <div class="doc-id">CD-CERT-001</div>
+      </div></a></div>
+
+      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/6b1b0280-9d26-4b26-a368-0094ee0096b4/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <span class="cert-badge badge-cleared">&#9673; VERIFIED</span>
+        <h3>Cisco CCNA</h3>
+        <div class="cert-meta">Certified Network Associate</div>
+        <div class="cert-meta">Enterprise Networking</div>
+        <div class="cert-note">Click to verify on Credly</div>
+        <div class="doc-id">CD-CERT-002</div>
+      </div></a></div>
+
+      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/3d58011f-2130-4a86-818d-f8bc414bbb41/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <span class="cert-badge badge-cleared">&#9673; VERIFIED</span>
+        <h3>ISC2 SSCP</h3>
+        <div class="cert-meta">Systems Security Certified Practitioner</div>
+        <div class="cert-meta">Operational Security</div>
+        <div class="cert-note">Click to verify on Credly</div>
+        <div class="doc-id">CD-CERT-003</div>
+      </div></a></div>
+
+      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/9277770f-fe46-481b-912d-caed05b03034/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <span class="cert-badge badge-cleared">&#9673; VERIFIED</span>
+        <h3>CompTIA Security+</h3>
+        <div class="cert-meta">Security Fundamentals</div>
+        <div class="cert-meta">DoD 8140 Baseline</div>
+        <div class="cert-note">Expires Jun 2028 &bull; Click to verify on Credly</div>
+        <div class="doc-id">CD-CERT-004</div>
+      </div></a></div>
+
+      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/a92ce870-953e-49a0-ab8c-c929121e00e0/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <span class="cert-badge badge-cleared">&#9673; VERIFIED</span>
+        <h3>CompTIA Network+</h3>
+        <div class="cert-meta">Networking Fundamentals</div>
+        <div class="cert-meta">Infrastructure Foundation</div>
+        <div class="cert-note">Expires Jun 2028 &bull; Click to verify on Credly</div>
+        <div class="doc-id">CD-CERT-005</div>
+      </div></a></div>
+
+      <div class="cert-card stagger-card"><a href="https://www.credly.com/badges/3b1a8cb0-61b8-48c9-9f74-86db203e942d/public_url" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <span class="cert-badge badge-cleared">&#9673; VERIFIED</span>
+        <h3>ISC2 CC</h3>
+        <div class="cert-meta">Certified in Cybersecurity</div>
+        <div class="cert-meta">Security Foundations</div>
+        <div class="cert-note">Click to verify on Credly</div>
+        <div class="doc-id">CD-CERT-006</div>
+      </div></a></div>
+
+      <div class="cert-card cert-card-blue stagger-card"><div class="hud"><span class="bl"></span><span class="br"></span>
+        <span class="cert-badge badge-blue">&#9673; IN PROGRESS</span>
+        <h3>AWS Certified Security &mdash; Specialty</h3>
+        <div class="cert-meta">Cloud Security Architecture</div>
+        <div class="cert-meta">AWS-Native Threat Detection</div>
+        <div class="cert-note" style="color:#2196F3;">Target 2026</div>
+        <div class="doc-id">CD-CERT-007</div>
       </div></div>
 
-      <div class="show-card stagger-card"><div class="hud" style="border-top-color:var(--gold);"><span class="bl"></span><span class="br"></span>
-        <div class="show-day">Every Thursday</div>
-        <h3>The Build LIVE</h3>
-        <div class="show-time">8:00 PM ET, 75 min</div>
-        <p>Live engineering sessions. Building security automation pipelines, n8n workflows, and infrastructure tools in real time.</p>
-        <div class="show-platform">MULTISTREAM: TikTok + YouTube</div>
-      </div></div>
-
-      <div class="show-card stagger-card"><div class="hud" style="border-top-color:var(--cyan);"><span class="bl"></span><span class="br"></span>
-        <div class="show-day">Every Saturday</div>
-        <h3>Open Channel</h3>
-        <div class="show-time">12:00 PM ET, 90 min</div>
-        <p>Open Q&A. Career strategy, cert advice, technical Q&A, industry talk. The most accessible briefing of the week.</p>
-        <div class="show-platform">MULTISTREAM: TikTok + YouTube</div>
-      </div></div>
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
+<section id="contact" style="border-bottom:none;">
   <div class="container">
     <div class="section-header reveal-left">
       <div class="label">// Comms</div>
@@ -595,32 +932,44 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
     </div>
     <p style="color:var(--light);max-width:500px;margin-bottom:8px;">Ready to talk security, automation, or strategy. Pick a channel.</p>
     <div class="contact-links">
-      <a href="https://www.tiktok.com/@coredirective.official?utm_source=portfolio&utm_medium=website" target="_blank" rel="noopener noreferrer" class="contact-link">▶ TikTok</a>
-      <a href="https://www.youtube.com/@coredirective.official?utm_source=portfolio&utm_medium=website" target="_blank" rel="noopener noreferrer" class="contact-link">▶ YouTube</a>
-      <a href="https://www.linkedin.com/in/emmanuel-tigoue-672378307?utm_source=portfolio&utm_medium=website" target="_blank" rel="noopener noreferrer" class="contact-link">▶ LinkedIn</a>
-      <a href="https://coredirective1.gumroad.com?utm_source=portfolio&utm_medium=website" target="_blank" rel="noopener noreferrer" class="contact-link">▶ Gumroad</a>
-      <a href="join.html" class="contact-link" style="border-color:var(--green);">▶ Join Secure Channel</a>
+      <a href="https://www.tiktok.com/@coredirective.official?utm_source=portfolio&utm_medium=website" target="_blank" rel="noopener noreferrer" class="contact-link">&#9654; TikTok</a>
+      <a href="https://www.youtube.com/@coredirective.official?utm_source=portfolio&utm_medium=website" target="_blank" rel="noopener noreferrer" class="contact-link">&#9654; YouTube</a>
+      <a href="https://www.linkedin.com/in/emmanuel-tigoue-672378307?utm_source=portfolio&utm_medium=website" target="_blank" rel="noopener noreferrer" class="contact-link">&#9654; LinkedIn</a>
+      <a href="https://coredirective1.gumroad.com?utm_source=portfolio&utm_medium=website" target="_blank" rel="noopener noreferrer" class="contact-link">&#9654; Gumroad</a>
+      <a href="join.html" class="contact-link" style="border-color:var(--green);">&#9654; Join Secure Channel</a>
     </div>
     <a href="mailto:support@tigouetheory.com" class="contact-email" style="display:block;text-decoration:none;">support@tigouetheory.com</a>
-    <a href="mailto:emmanueltigoue@gmail.com" style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--light);margin-top:8px;display:block;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--light)'">emmanueltigoue@gmail.com</a>
   </div>
 </section>
 
 <footer>
   <div class="container">
-    <div class="logo"><span style="color:var(--green);">◉</span> COREDIRECTIVE</div>
+    <div class="logo"><span style="color:var(--green);">&#9673;</span> COREDIRECTIVE</div>
     <div class="copy" style="font-family:'JetBrains Mono',monospace;">COREDIRECTIVE // 2026</div>
-    <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" style="display:inline-block;margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--green);letter-spacing:2px;text-transform:uppercase;text-decoration:none;cursor:pointer;">▲ BACK TO TOP</a>
+    <div class="footer-status"><span class="online">&#9673;</span> SYSTEM STATUS: OPERATIONAL // LAST DEPLOY: 2026-02-18</div>
+    <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" style="display:inline-block;margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--green);letter-spacing:2px;text-transform:uppercase;text-decoration:none;cursor:pointer;">&#9650; BACK TO TOP</a>
   </div>
 </footer>
 
 <script>
-// Build hours automated progress bar (20 segments, 280/10000 = ~0.56 blocks)
-const bar = document.getElementById('hoursBar');
+// BOOT SEQUENCE
+(function() {
+  var overlay = document.getElementById('boot-overlay');
+  if (!overlay) return;
+  var line1 = document.getElementById('boot-line-1');
+  var line2 = document.getElementById('boot-line-2');
+  setTimeout(function() { line1.classList.add('show'); }, 200);
+  setTimeout(function() { line2.classList.add('show'); }, 1800);
+  setTimeout(function() { overlay.classList.add('fade-out'); }, 2800);
+  setTimeout(function() { overlay.remove(); }, 3400);
+})();
+
+// Build hours automated progress bar (20 segments, 400/10000)
+var bar = document.getElementById('hoursBar');
 if (bar) {
-  const filled = Math.max(1, Math.ceil((280 / 10000) * 20)); // Update 280 as hours grow
-  for (let i = 0; i < 20; i++) {
-    const block = document.createElement('div');
+  var filled = Math.max(1, Math.ceil((400 / 10000) * 20));
+  for (var i = 0; i < 20; i++) {
+    var block = document.createElement('div');
     block.className = 'progress-block' + (i < filled ? ' filled' : '');
     bar.appendChild(block);
   }
@@ -629,8 +978,10 @@ if (bar) {
 // Smooth scroll for nav links
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
+    var href = a.getAttribute('href');
+    if (!href || href === '#') return;
     e.preventDefault();
-    const target = document.querySelector(a.getAttribute('href'));
+    var target = document.querySelector(href);
     if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     document.querySelector('.nav-links').classList.remove('open');
   });
@@ -638,7 +989,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
 // TYPING EFFECT
 (function() {
-  const text = 'Cybersecurity Operations \u2022 Infrastructure Automation \u2022 Technical Auditing';
+  const text = 'Certification Frameworks \u2022 Security Automation \u2022 Threat Intelligence';
   const el = document.getElementById('typed-tagline');
   let i = 0;
   el.classList.add('typing-cursor');
@@ -693,9 +1044,9 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   draw();
 })();
 
-// COUNTER ANIMATION (scroll-triggered)
+// COUNTER ANIMATION (scroll-triggered, handles %, $, decimals)
 (function() {
-  const stats = document.querySelectorAll('.stat .num');
+  const stats = document.querySelectorAll('.pow-stat .num, .stat .num');
   const observed = new Set();
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -703,16 +1054,23 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
         observed.add(entry.target);
         const el = entry.target;
         const text = el.textContent.trim();
-        const match = text.match(/^(\d+)(\+?)$/);
+        const match = text.match(/^(\$?)(\d+\.?\d*)([\+%]?)$/);
         if (match) {
-          const target = parseInt(match[1]);
-          const suffix = match[2];
-          let current = 0;
-          const step = Math.max(1, Math.floor(target / 30));
+          const prefix = match[1];
+          const target = parseFloat(match[2]);
+          const suffix = match[3];
+          const isDecimal = match[2].includes('.');
+          let frame = 0;
+          const steps = 30;
           const interval = setInterval(() => {
-            current += step;
-            if (current >= target) { current = target; clearInterval(interval); }
-            el.textContent = current + suffix;
+            frame++;
+            const current = Math.min(target, (target / steps) * frame);
+            if (frame >= steps) {
+              el.textContent = prefix + (isDecimal ? target.toFixed(1) : target) + suffix;
+              clearInterval(interval);
+            } else {
+              el.textContent = prefix + (isDecimal ? current.toFixed(1) : Math.round(current)) + suffix;
+            }
           }, 40);
         }
       }
@@ -790,6 +1148,506 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   window.addEventListener('scroll', () => {
     document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 50);
   });
+})();
+
+// SCROLL PROGRESS BAR
+(function() {
+  var bar = document.getElementById('scroll-progress');
+  if (!bar) return;
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  });
+})();
+
+// CURSOR GLOW
+(function() {
+  var glow = document.getElementById('cursor-glow');
+  if (!glow || window.innerWidth < 768) return;
+  document.addEventListener('mousemove', function(e) {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
+  });
+})();
+
+// 3D TILT ON CARDS
+(function() {
+  if (window.innerWidth < 768) return;
+  document.querySelectorAll('.cert-card .hud, .hud-animate, .pow-stat, .service-card .hud, .show-card .hud').forEach(function(card) {
+    card.classList.add('tilt-target');
+    card.addEventListener('mousemove', function(e) {
+      var r = card.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - 0.5;
+      var y = (e.clientY - r.top) / r.height - 0.5;
+      card.style.transform = 'perspective(800px) rotateX(' + (y * -10) + 'deg) rotateY(' + (x * 10) + 'deg) scale(1.02)';
+    });
+    card.addEventListener('mouseleave', function() {
+      card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) scale(1)';
+    });
+  });
+})();
+
+// SECRET TERMINAL (triple-click brand logo)
+(function() {
+  var brand = document.querySelector('nav .brand');
+  var overlay = document.getElementById('terminal-overlay');
+  var input = document.getElementById('terminal-input');
+  var body = document.getElementById('terminal-body');
+  var closeBtn = document.getElementById('terminal-close');
+  if (!brand || !overlay) return;
+  var clicks = 0, timer = null;
+  brand.style.cursor = 'pointer';
+  brand.addEventListener('click', function(e) {
+    e.preventDefault();
+    clicks++;
+    clearTimeout(timer);
+    timer = setTimeout(function() { clicks = 0; }, 600);
+    if (clicks >= 3) {
+      clicks = 0;
+      overlay.classList.add('open');
+      input.focus();
+    }
+  });
+  function closeTerminal() { overlay.classList.remove('open'); }
+  closeBtn.addEventListener('click', closeTerminal);
+  overlay.addEventListener('click', function(e) { if (e.target === overlay) closeTerminal(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeTerminal(); });
+  var commands = {
+    help: function() {
+      return [
+        {t:'gold', m:'Available Commands:'},
+        {t:'output', m:'  help        Show this menu'},
+        {t:'output', m:'  whoami      Display identity'},
+        {t:'output', m:'  certs       List certifications'},
+        {t:'output', m:'  skills      List core skills'},
+        {t:'output', m:'  stack       Show tech stack'},
+        {t:'output', m:'  hire        Get contact info'},
+        {t:'output', m:'  status      System status'},
+        {t:'output', m:'  shows       List live shows'},
+        {t:'output', m:'  products    List intel assets'},
+        {t:'output', m:'  mission     CoreDirective mission'},
+        {t:'output', m:'  cat resume  Download resume'},
+        {t:'output', m:'  ping        Test connection'},
+        {t:'output', m:'  clear       Clear terminal'},
+        {t:'output', m:'  exit        Close terminal'}
+      ];
+    },
+    whoami: function() {
+      return [
+        {t:'', m:'Emmanuel Tigoue'},
+        {t:'output', m:'Role:      Security Engineer'},
+        {t:'output', m:'Location:  Atlanta, GA'},
+        {t:'output', m:'Company:   CoreDirective'},
+        {t:'output', m:'Clearance: CASP+ (DoD 8140 IAT/IAM III)'},
+        {t:'output', m:'Status:    Operational'}
+      ];
+    },
+    certs: function() {
+      return [
+        {t:'gold', m:'Certification Stack (6 active):'},
+        {t:'', m:'  [VERIFIED] CompTIA CASP+ (SecurityX)'},
+        {t:'', m:'  [VERIFIED] ISC2 SSCP'},
+        {t:'', m:'  [VERIFIED] Cisco CCNA'},
+        {t:'', m:'  [VERIFIED] CompTIA Security+'},
+        {t:'', m:'  [VERIFIED] CompTIA Network+'},
+        {t:'', m:'  [VERIFIED] ISC2 CC'},
+        {t:'output', m:'  [PENDING]  AWS Security Specialty'}
+      ];
+    },
+    skills: function() {
+      return [
+        {t:'gold', m:'Core Skills:'},
+        {t:'output', m:'  Cloud:   AWS (EC2, VPC, IAM, GuardDuty, CloudTrail, S3)'},
+        {t:'output', m:'  IaC:     Terraform, Docker, Ansible'},
+        {t:'output', m:'  SecOps:  SOAR, Zero Trust, SIEM, Splunk, Nessus'},
+        {t:'output', m:'  AI/ML:   LLM orchestration, Claude, Ollama'},
+        {t:'output', m:'  Network: Wireshark, Burp Suite, VLAN, firewall'}
+      ];
+    },
+    stack: function() {
+      return [
+        {t:'gold', m:'Production Stack:'},
+        {t:'output', m:'  PostgreSQL 16    :5400   Database'},
+        {t:'output', m:'  n8n SOAR         :5600   Orchestration'},
+        {t:'output', m:'  Ollama/Qwen      :11400  AI Inference'},
+        {t:'output', m:'  Whisper STT      :8200   Voice'},
+        {t:'output', m:'  OpenClaw AI      :18700  Agent Gateway'},
+        {t:'output', m:'  Cloudflare Tunnel TLS    Zero Trust Access'}
+      ];
+    },
+    hire: function() {
+      return [
+        {t:'gold', m:'Contact Information:'},
+        {t:'', m:'  Email:    support@tigouetheory.com'},
+        {t:'', m:'  TikTok:   @coredirective.official'},
+        {t:'', m:'  YouTube:  @coredirective.official'},
+        {t:'', m:'  LinkedIn: linkedin.com/in/emmanuel-tigoue-672378307'},
+        {t:'', m:'  Gumroad:  coredirective1.gumroad.com'},
+        {t:'output', m:''},
+        {t:'', m:'  Ready for consultations and project discussions.'}
+      ];
+    },
+    status: function() {
+      return [
+        {t:'', m:'SYSTEM STATUS: OPERATIONAL'},
+        {t:'output', m:'  Uptime:       99.5%'},
+        {t:'output', m:'  Services:     17/17 active'},
+        {t:'output', m:'  Threat Level: LOW'},
+        {t:'output', m:'  Last Scan:    ' + new Date().toISOString().slice(0,19) + 'Z'}
+      ];
+    },
+    shows: function() {
+      return [
+        {t:'gold', m:'Live Shows (weekly):'},
+        {t:'', m:'  TUE 8PM ET  Threat Brief LIVE   [TikTok+YouTube]'},
+        {t:'', m:'  THU 8PM ET  The Build LIVE       [TikTok+YouTube]'},
+        {t:'', m:'  SAT 12PM ET Open Channel         [TikTok+YouTube]'},
+        {t:'output', m:'  Daily       TikTok Tactical Breakdowns'}
+      ];
+    },
+    products: function() {
+      return [
+        {t:'gold', m:'Intelligence Assets (Gumroad):'},
+        {t:'', m:'  CS-CCNA-200  CCNA 200-301 Cyber-Squire OS    $39.99'},
+        {t:'', m:'  CS-SEC-701   Security+ 701 Cyber-Squire OS   $29.99'},
+        {t:'', m:'  CS-NET-009   Network+ 009 Cyber-Squire OS    FREE'}
+      ];
+    },
+    mission: function() {
+      return [
+        {t:'gold', m:'COREDIRECTIVE // MISSION'},
+        {t:'output', m:''},
+        {t:'', m:'Provide the technical frameworks and intelligence'},
+        {t:'', m:'required to secure high-level careers in cybersecurity.'},
+        {t:'output', m:''},
+        {t:'', m:'No gatekeepers. No excuses.'},
+        {t:'output', m:''},
+        {t:'output', m:'Proof outranks promises.'}
+      ];
+    },
+    ping: function() {
+      return [
+        {t:'', m:'PING coredirective.local (172.28.0.1)'},
+        {t:'output', m:'64 bytes: seq=1 ttl=64 time=0.312 ms'},
+        {t:'output', m:'64 bytes: seq=2 ttl=64 time=0.289 ms'},
+        {t:'output', m:'64 bytes: seq=3 ttl=64 time=0.301 ms'},
+        {t:'', m:'--- 3 packets transmitted, 0% loss ---'}
+      ];
+    },
+    sudo: function() {
+      return [{t:'error', m:'ACCESS DENIED. Incident logged. Nice try.'}];
+    },
+    rm: function() {
+      return [{t:'error', m:'Permission denied. This is a read-only filesystem.'}];
+    },
+    ls: function() {
+      return [
+        {t:'output', m:'drwxr-x--- products/'},
+        {t:'output', m:'drwxr-x--- live-shows/'},
+        {t:'output', m:'drwxr-x--- services/'},
+        {t:'output', m:'drwxr-x--- the-engine/'},
+        {t:'output', m:'drwxr-x--- the-climb/'},
+        {t:'output', m:'drwxr-x--- certifications/'},
+        {t:'output', m:'-rw-r----- contact.txt'},
+        {t:'output', m:'-rw-r----- resume.pdf'}
+      ];
+    }
+  };
+  commands['cat resume'] = function() {
+    var a = document.createElement('a'); a.href = 'resume.pdf'; a.download = ''; a.click();
+    return [{t:'', m:'Downloading resume.pdf...'}];
+  };
+  function addLine(cls, text) {
+    var d = document.createElement('div');
+    d.className = 'terminal-line' + (cls ? ' ' + cls : '');
+    d.textContent = text;
+    body.appendChild(d);
+    body.scrollTop = body.scrollHeight;
+  }
+  input.addEventListener('keydown', function(e) {
+    if (e.key !== 'Enter') return;
+    var cmd = input.value.trim().toLowerCase();
+    input.value = '';
+    addLine('', 'visitor@coredirective:~$ ' + cmd);
+    if (cmd === 'clear') { body.innerHTML = ''; return; }
+    if (cmd === 'exit') { closeTerminal(); return; }
+    if (cmd === '') return;
+    var fn = commands[cmd];
+    if (!fn) {
+      addLine('error', 'Command not found: ' + cmd + '. Type "help" for available commands.');
+      return;
+    }
+    var lines = fn();
+    lines.forEach(function(l) { addLine(l.t, l.m); });
+    addLine('output', '');
+  });
+})();
+
+// THREAT COUNTER (slow increment)
+(function() {
+  var el = document.getElementById('threat-counter');
+  if (!el) return;
+  var count = 10847;
+  function fmt(n) { return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+  setInterval(function() {
+    count += Math.floor(Math.random() * 3) + 1;
+    el.textContent = fmt(count);
+  }, 3000);
+})();
+
+// PARTICLE NETWORK
+(function() {
+  var canvas = document.getElementById('particle-bg');
+  if (!canvas || window.innerWidth < 768) return;
+  var ctx = canvas.getContext('2d');
+  var w, h, particles = [], mouseX = -1000, mouseY = -1000;
+  var N = 40, DIST = 120;
+  function resize() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+  document.addEventListener('mousemove', function(e) { mouseX = e.clientX; mouseY = e.clientY; });
+  for (var i = 0; i < N; i++) {
+    particles.push({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+      vx: (Math.random() - 0.5) * 0.4,
+      vy: (Math.random() - 0.5) * 0.4
+    });
+  }
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+    for (var i = 0; i < particles.length; i++) {
+      var p = particles[i];
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > w) p.vx *= -1;
+      if (p.y < 0 || p.y > h) p.vy *= -1;
+      var dx = mouseX - p.x, dy = mouseY - p.y;
+      var md = Math.sqrt(dx * dx + dy * dy);
+      if (md < 200) {
+        p.x -= dx * 0.008;
+        p.y -= dy * 0.008;
+      }
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 1.5, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(0,255,65,0.5)';
+      ctx.fill();
+      for (var j = i + 1; j < particles.length; j++) {
+        var q = particles[j];
+        var ddx = p.x - q.x, ddy = p.y - q.y;
+        var dist = Math.sqrt(ddx * ddx + ddy * ddy);
+        if (dist < DIST) {
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(q.x, q.y);
+          ctx.strokeStyle = 'rgba(0,255,65,' + (0.15 * (1 - dist / DIST)) + ')';
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// TYPEWRITER SECTION HEADERS
+(function() {
+  var headers = document.querySelectorAll('.section-header h2');
+  var done = new Set();
+  headers.forEach(function(h) {
+    h.setAttribute('data-text', h.textContent);
+  });
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting && !done.has(entry.target)) {
+        done.add(entry.target);
+        var el = entry.target;
+        var text = el.getAttribute('data-text');
+        var parent = el.closest('.section-header');
+        function waitForReveal() {
+          if (parent && !parent.classList.contains('visible')) {
+            requestAnimationFrame(waitForReveal);
+            return;
+          }
+          setTimeout(function() {
+            el.innerHTML = '<span class="tw-cursor"></span>';
+            var span = el.querySelector('.tw-cursor');
+            var i = 0;
+            function type() {
+              if (i < text.length) {
+                span.textContent = text.substring(0, i + 1);
+                i++;
+                setTimeout(type, 50);
+              } else {
+                setTimeout(function() { span.classList.remove('tw-cursor'); }, 1500);
+              }
+            }
+            type();
+          }, 650);
+        }
+        waitForReveal();
+      }
+    });
+  }, { threshold: 0.3 });
+  headers.forEach(function(h) {
+    h.textContent = '';
+    obs.observe(h);
+  });
+})();
+
+// MAGNETIC BUTTONS
+(function() {
+  if (window.innerWidth < 768) return;
+  document.querySelectorAll('.btn').forEach(function(btn) {
+    btn.addEventListener('mousemove', function(e) {
+      var r = btn.getBoundingClientRect();
+      var x = e.clientX - r.left - r.width / 2;
+      var y = e.clientY - r.top - r.height / 2;
+      btn.style.transform = 'translate(' + (x * 0.25) + 'px, ' + (y * 0.25) + 'px)';
+    });
+    btn.addEventListener('mouseleave', function() {
+      btn.style.transform = 'translate(0, 0)';
+    });
+  });
+})();
+
+// TIME-BASED GREETING
+(function() {
+  var badge = document.getElementById('hero-badge');
+  if (!badge) return;
+  var h = new Date().getHours();
+  var greeting = h >= 5 && h < 12 ? 'GOOD MORNING' : h >= 12 && h < 17 ? 'GOOD AFTERNOON' : h >= 17 && h < 21 ? 'GOOD EVENING' : 'NIGHT OPS ACTIVE';
+  badge.textContent = greeting + ', OPERATOR // CoreDirective Operations Hub';
+})();
+
+// VISITOR DESIGNATION
+(function() {
+  var el = document.getElementById('visitor-id');
+  if (!el) return;
+  var hex = Math.floor(Math.random() * 0xFFFF).toString(16).toUpperCase().padStart(4, '0');
+  el.textContent = 'VISITOR DESIGNATION: VX-' + hex;
+})();
+
+// INTERACTIVE ARCHITECTURE TOOLTIPS
+(function() {
+  var tooltip = document.getElementById('arch-tooltip');
+  if (!tooltip) return;
+  var activeNode = null;
+  document.querySelectorAll('.arch-node[data-info]').forEach(function(node) {
+    node.addEventListener('click', function(e) {
+      e.stopPropagation();
+      if (activeNode === node) {
+        tooltip.classList.remove('visible');
+        activeNode = null;
+        return;
+      }
+      activeNode = node;
+      tooltip.textContent = node.getAttribute('data-info');
+      var r = node.getBoundingClientRect();
+      tooltip.style.left = Math.min(r.left, window.innerWidth - 290) + 'px';
+      tooltip.style.top = (r.bottom + 8) + 'px';
+      tooltip.classList.add('visible');
+    });
+  });
+  document.addEventListener('click', function() {
+    tooltip.classList.remove('visible');
+    activeNode = null;
+  });
+})();
+
+// KEYBOARD NAVIGATION
+(function() {
+  var sections = ['products', 'shows', 'services', 'engine', 'climb', 'certs', 'contact'];
+  var kbOverlay = document.getElementById('kb-overlay');
+  var termOverlay = document.getElementById('terminal-overlay');
+  var konamiOverlay = document.getElementById('konami-overlay');
+  var currentSection = -1;
+  function anyOverlayOpen() {
+    return (kbOverlay && kbOverlay.classList.contains('open')) ||
+           (termOverlay && termOverlay.classList.contains('open')) ||
+           (konamiOverlay && konamiOverlay.classList.contains('open'));
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.key === 'Escape') {
+      if (kbOverlay) kbOverlay.classList.remove('open');
+      if (konamiOverlay) konamiOverlay.classList.remove('open');
+      return;
+    }
+    if (kbOverlay && kbOverlay.classList.contains('open') && e.key !== '?') {
+      kbOverlay.classList.remove('open');
+      return;
+    }
+    if (anyOverlayOpen()) return;
+    var key = e.key.toLowerCase();
+    if (key === '?') {
+      e.preventDefault();
+      kbOverlay.classList.toggle('open');
+    } else if (key === 'j') {
+      currentSection = Math.min(currentSection + 1, sections.length - 1);
+      document.getElementById(sections[currentSection]).scrollIntoView({ behavior: 'smooth' });
+    } else if (key === 'k') {
+      if (currentSection <= 0) { window.scrollTo({ top: 0, behavior: 'smooth' }); currentSection = -1; }
+      else { currentSection--; document.getElementById(sections[currentSection]).scrollIntoView({ behavior: 'smooth' }); }
+    } else if (key === 't') {
+      if (termOverlay) termOverlay.classList.add('open');
+      var ti = document.getElementById('terminal-input');
+      if (ti) ti.focus();
+    } else if (key === 'r') {
+      var a = document.createElement('a'); a.href = 'resume.pdf'; a.download = ''; a.click();
+    }
+  });
+  if (konamiOverlay) konamiOverlay.addEventListener('click', function() { konamiOverlay.classList.remove('open'); });
+})();
+
+// KONAMI CODE (up up down down left right left right b a)
+(function() {
+  var overlay = document.getElementById('konami-overlay');
+  if (!overlay) return;
+  var seq = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+  var pos = 0;
+  document.addEventListener('keydown', function(e) {
+    if (e.target.tagName === 'INPUT') return;
+    if (e.key === seq[pos] || e.key.toLowerCase() === seq[pos]) {
+      pos++;
+      if (pos === seq.length) {
+        pos = 0;
+        overlay.classList.add('open');
+      }
+    } else {
+      pos = 0;
+    }
+  });
+})();
+
+// LIVE SHOW PULSE (glow on air day)
+(function() {
+  var today = new Date().getDay(); // 0=Sun, 1=Mon, 2=Tue, 3=Wed, 4=Thu, 5=Fri, 6=Sat
+  document.querySelectorAll('.show-card[data-day]').forEach(function(card) {
+    if (parseInt(card.getAttribute('data-day')) === today) {
+      card.classList.add('on-air');
+    }
+  });
+})();
+
+// CLIMB PROGRESS GLOW ANIMATION ON SCROLL
+(function() {
+  var bar = document.getElementById('hoursBar');
+  if (!bar) return;
+  var obs = new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting) {
+      bar.querySelectorAll('.progress-block.filled').forEach(function(block) {
+        block.classList.add('glow-animate');
+      });
+    } else {
+      bar.querySelectorAll('.progress-block.filled').forEach(function(block) {
+        block.classList.remove('glow-animate');
+      });
+    }
+  }, { threshold: 0.3 });
+  obs.observe(bar);
 })();
 </script>
 

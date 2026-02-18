@@ -200,7 +200,7 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(0,255,65,0.1); }
 /* SERVICES/SOLUTIONS */
 .service-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
 .service-card .hud { height: 100%; display: flex; flex-direction: column; border-top: 3px solid transparent; transition: border-color 0.3s, box-shadow 0.3s; }
-.service-tier { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--cyan); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+.service-tier { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
 .service-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
 .service-desc { color: var(--light); font-size: 14px; margin-bottom: 16px; flex-grow: 1; }
 .service-list { list-style: none; margin-bottom: 20px; }
@@ -208,8 +208,10 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(0,255,65,0.1); }
 .service-list li::before { content: '\203A'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
 .btn-sm { padding: 10px 20px; font-size: 12px; width: 100%; text-align: center; }
 /* Solutions hover tier colors */
-.service-card[data-tier="security"] .hud:hover { border-top-color: var(--red); }
+.service-card[data-tier="security"] .hud:hover { border-top-color: var(--gold); }
 .service-card[data-tier="engineering"] .hud:hover { border-top-color: var(--gold); }
+.service-card .btn-outline { color: var(--gold); border-color: var(--gold); }
+.service-card .btn-outline:hover { background: var(--gold); color: var(--void); }
 
 /* PRODUCTS */
 .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }

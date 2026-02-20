@@ -208,7 +208,6 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(0,255,65,0.1); }
 .service-list li::before { content: '\203A'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
 .btn-sm { padding: 10px 20px; font-size: 12px; width: 100%; text-align: center; }
 /* Solutions hover tier colors */
-.service-card[data-tier="security"] .hud:hover { border-top-color: var(--gold); }
 .service-card[data-tier="engineering"] .hud:hover { border-top-color: var(--gold); }
 .service-card .btn-outline { color: var(--gold); border-color: var(--gold); }
 .service-card .btn-outline:hover { background: var(--gold); color: var(--void); }
@@ -563,7 +562,7 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
     <div class="nav-links">
       <a href="#certs">Certs</a>
       <a href="#engine">Engine</a>
-      <a href="#services">Services</a>
+      <a href="#services">Service</a>
       <a href="#products">Frameworks</a>
       <a href="#shows">Live</a>
       <a href="#climb">The Climb</a>
@@ -744,35 +743,22 @@ nav .nav-links a:hover { color: var(--green); text-decoration: none; }
   </div>
 </section>
 
-<!-- SERVICES -->
+<!-- SERVICE -->
 <section id="services">
   <div class="container">
     <div class="section-header reveal-left">
       <div class="label">// Operations</div>
-      <h2>Services</h2>
+      <h2>Service</h2>
       <div class="line"></div>
     </div>
     <div class="service-grid">
-      <div class="service-card stagger-card" data-tier="security"><div class="hud"><span class="bl"></span><span class="br"></span>
-        <div class="service-tier">Assessment</div>
-        <h3>Security Audits</h3>
-        <div class="service-desc">Full infrastructure security assessment aligned to NIST and DoD 8140 frameworks. Network, cloud, and identity review with written remediation report.</div>
-        <ul class="service-list">
-          <li>Full security assessment</li>
-          <li>Compliance gap analysis</li>
-          <li>Written report with priorities</li>
-          <li>Executive walkthrough</li>
-        </ul>
-        <a href="#contact" class="btn btn-outline btn-sm">Request Quote</a>
-      </div></div>
-
       <div class="service-card stagger-card" data-tier="engineering"><div class="hud"><span class="bl"></span><span class="br"></span>
         <div class="service-tier">Engineering</div>
         <h3>AI &amp; Automation Operations</h3>
-        <div class="service-desc">Custom security automation pipelines built for your business. Containerized AI workflows, monitoring systems, and ongoing maintenance.</div>
+        <div class="service-desc">Custom automation pipelines built for your business. AI workflows, orchestration systems, monitoring, and ongoing maintenance.</div>
         <ul class="service-list">
           <li>Custom n8n/AI workflow builds</li>
-          <li>Container orchestration + hardening</li>
+          <li>Container orchestration + deployment</li>
           <li>Monitoring and alerting systems</li>
           <li>Monthly maintenance retainer</li>
         </ul>
